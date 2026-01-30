@@ -107,3 +107,84 @@ footer {
     font-size: 0.85rem;
     color: #777;
 }
+/* ANIMATIONS */
+.fade-in {
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeUp 0.8s ease forwards;
+}
+
+@keyframes fadeUp {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Delay helpers */
+.delay-1 { animation-delay: 0.2s; }
+.delay-2 { animation-delay: 0.4s; }
+.delay-3 { animation-delay: 0.6s; }
+
+/* Hover effects */
+.card:hover {
+    border-left-color: #ff3b3b;
+    box-shadow: 0 0 12px rgba(255, 59, 59, 0.15);
+    transition: all 0.3s ease;
+}
+/* MODULE ANIMATIONS */
+.module {
+    opacity: 0;
+    transform: translateX(-20px);
+    animation: slideIn 0.8s ease forwards;
+}
+
+.module:nth-child(1) { animation-delay: 0.1s; }
+.module:nth-child(2) { animation-delay: 0.25s; }
+.module:nth-child(3) { animation-delay: 0.4s; }
+.module:nth-child(4) { animation-delay: 0.55s; }
+.module:nth-child(5) { animation-delay: 0.7s; }
+.module:nth-child(6) { animation-delay: 0.85s; }
+
+@keyframes slideIn {
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+.module p {
+    margin-top: 8px;
+    font-size: 0.95rem;
+    color: #cccccc;
+}
+/* SCROLL ANIMATION BASE */
+.animate {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: all 0.8s ease;
+}
+
+.animate.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Module-specific animation */
+.module {
+    opacity: 0;
+    transform: translateX(-30px);
+    transition: all 0.6s ease;
+}
+
+.animate.visible .module {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+/* Stagger effect for modules */
+.module:nth-child(2) { transition-delay: 0.1s; }
+.module:nth-child(3) { transition-delay: 0.2s; }
+.module:nth-child(4) { transition-delay: 0.3s; }
+.module:nth-child(5) { transition-delay: 0.4s; }
+.module:nth-child(6) { transition-delay: 0.5s; }
