@@ -251,3 +251,41 @@ footer {
     font-size: 0.8rem;
     color: #777;
 }
+/* =====================
+   AGGRESSIVE SCROLL ANIMATIONS
+===================== */
+.animate {
+    opacity: 0;
+    transform: translateY(60px);
+    transition: 
+        opacity 0.8s ease-out,
+        transform 0.8s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+.animate.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* MODULES: ATTACK CHAIN SLIDE-IN */
+.module {
+    opacity: 0;
+    transform: translateX(-50px);
+}
+
+.animate.visible .module {
+    opacity: 1;
+    transform: translateX(0);
+    transition: 
+        opacity 0.6s ease-out,
+        transform 0.6s ease-out;
+}
+
+/* STAGGER EFFECT */
+.module:nth-child(1) { transition-delay: 0.05s; }
+.module:nth-child(2) { transition-delay: 0.15s; }
+.module:nth-child(3) { transition-delay: 0.25s; }
+.module:nth-child(4) { transition-delay: 0.35s; }
+.module:nth-child(5) { transition-delay: 0.45s; }
+.module:nth-child(6) { transition-delay: 0.55s; }
+
