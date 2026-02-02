@@ -1,4 +1,16 @@
 /* =====================
+   TERMINAL BOOT SEQUENCE
+===================== */
+document.body.style.opacity = "0";
+
+window.addEventListener("load", () => {
+  setTimeout(() => {
+    document.body.style.transition = "opacity 0.6s ease";
+    document.body.style.opacity = "1";
+  }, 1200);
+});
+
+/* =====================
    SCROLL REVEAL
 ===================== */
 const observer = new IntersectionObserver(
@@ -53,5 +65,33 @@ document.querySelectorAll(".glitch").forEach(el => {
     el.classList.add("glitch-active");
     setTimeout(() => el.classList.remove("glitch-active"), 300);
   });
+});
+
+/* =====================
+   SEQUENTIAL MODULE SLIDE-IN
+===================== */
+document.querySelectorAll(".animate").forEach(section => {
+  const modules = section.querySelectorAll(".module");
+
+  if (modules.length) {
+    const moduleObserver = new IntersectionObserver(
+      entries => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            modules.forEach((mod, index) => {
+              setTimeout(() => {
+                mod.style.opacity = "1";
+                mod.style.transform = "translateX(0)";
+              }, index * 180);
+            });
+            moduleObserver.disconnect();
+          }
+        });
+      },
+      { threshold: 0.3 }
+    );
+
+    moduleObserver.observe(section);
+  }
 });
 
