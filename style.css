@@ -29,6 +29,10 @@ body {
 }
 
 }
+body > *:not(.smoke-layer) {
+    position: relative;
+    z-index: 2;
+}
 /* =====================
    SMOKE ATMOSPHERE (REAL LAYER)
 ===================== */
@@ -319,6 +323,7 @@ footer {
     font-size: 0.8rem;
     color: #777;
 }
+
 
 
 
