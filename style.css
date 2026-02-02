@@ -38,7 +38,7 @@ body::after {
         radial-gradient(circle at 50% 50%, rgba(0, 0, 0, 0.95), transparent 70%);
     filter: blur(100px);
     opacity: 1;
-    z-index: -2;
+    z-index: 0;
     pointer-events: none;
     animation: smokeDrift 60s linear infinite;
 }
@@ -286,3 +286,4 @@ footer {
     font-size: 0.8rem;
     color: #777;
 }
+
