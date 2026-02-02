@@ -25,6 +25,9 @@ body {
     line-height: 1.7;
     overflow-x: hidden;
     position: relative;
+    z-index: 1;
+}
+
 }
 
 /* SMOKE / HAZE */
@@ -286,4 +289,5 @@ footer {
     font-size: 0.8rem;
     color: #777;
 }
+
 
