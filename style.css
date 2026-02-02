@@ -39,11 +39,13 @@ body::after {
         radial-gradient(circle at 20% 30%, rgba(255, 0, 0, 0.25), transparent 55%),
         radial-gradient(circle at 80% 70%, rgba(255, 0, 0, 0.2), transparent 60%),
         radial-gradient(circle at 50% 50%, rgba(0, 0, 0, 0.95), transparent 70%);
-    filter: blur(100px);
-    opacity: 1;
+    filter: blur(110px);
+    opacity: 0.95;
     z-index: 0;
     pointer-events: none;
     animation: smokeDrift 60s linear infinite;
+    mix-blend-mode: screen;
+
 }
 
 @keyframes smokeDrift {
@@ -289,5 +291,6 @@ footer {
     font-size: 0.8rem;
     color: #777;
 }
+
 
 
