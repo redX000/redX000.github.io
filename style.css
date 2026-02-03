@@ -2,10 +2,10 @@
    ROOT & RESET
 ===================== */
 :root {
-    --bg: #000000;
+    --bg: #000;
     --red: #ff0022;
     --white: #ffffff;
-    --muted: #9a9a9a;
+    --muted: #b5b5b5;
 }
 
 * {
@@ -14,41 +14,46 @@
     box-sizing: border-box;
 }
 
-html {
-    scroll-behavior: smooth;
-}
-
 body {
     font-family: 'JetBrains Mono', monospace;
     background: var(--bg);
     color: var(--white);
     line-height: 1.6;
     overflow-x: hidden;
+    position: relative;
 }
 
 /* =====================
-   PANORAMIC SMOKE LAYER
+   SMOKE BACKGROUND (VISIBLE)
 ===================== */
 .smoke-layer {
     position: fixed;
-    inset: 0;
+    top: -30%;
+    left: -30%;
+    width: 160%;
+    height: 160%;
     background:
-        radial-gradient(
-            ellipse at center,
-            rgba(255,255,255,0.08),
-            rgba(255,255,255,0.02),
-            transparent 70%
-        );
-    opacity: 0.6;
-    animation: smokeMove 35s linear infinite;
-    z-index: -1;
+        radial-gradient(circle at 30% 40%, rgba(255,255,255,0.12), transparent 60%),
+        radial-gradient(circle at 70% 60%, rgba(255,255,255,0.10), transparent 65%),
+        radial-gradient(circle at 50% 50%, rgba(255,255,255,0.08), transparent 70%);
+    filter: blur(120px);
+    opacity: 0.8;
+    animation: smokePan 45s linear infinite;
+    z-index: 0;
     pointer-events: none;
 }
 
-@keyframes smokeMove {
-    0% { transform: translateX(-15%) translateY(-5%); }
-    50% { transform: translateX(15%) translateY(5%); }
-    100% { transform: translateX(-15%) translateY(-5%); }
+/* Smoke movement */
+@keyframes smokePan {
+    0%   { transform: translateX(-10%) translateY(-5%); }
+    50%  { transform: translateX(10%) translateY(5%); }
+    100% { transform: translateX(-10%) translateY(-5%); }
+}
+
+/* Keep all content above smoke */
+body > *:not(.smoke-layer) {
+    position: relative;
+    z-index: 1;
 }
 
 /* =====================
@@ -59,21 +64,20 @@ body {
     display: flex;
     align-items: center;
     padding: 80px 10%;
-    background: radial-gradient(circle at top, #120000, #000);
+    background: transparent;
 }
 
 .hero h1 {
-    font-size: 3.2rem;
-    margin-bottom: 10px;
+    font-size: 3.4rem;
 }
 
 .hero h2 {
     color: var(--red);
-    margin-bottom: 20px;
+    margin: 12px 0;
 }
 
 .hero p {
-    max-width: 600px;
+    max-width: 650px;
     color: var(--muted);
 }
 
@@ -86,7 +90,7 @@ body {
 ===================== */
 .btn {
     display: inline-block;
-    padding: 12px 24px;
+    padding: 12px 26px;
     margin-top: 20px;
     margin-right: 10px;
     border: 2px solid var(--red);
@@ -103,8 +107,8 @@ body {
 }
 
 .links a {
-    margin-right: 15px;
     color: var(--muted);
+    margin-right: 16px;
     text-decoration: none;
 }
 
@@ -134,19 +138,14 @@ section h2 {
    CARDS
 ===================== */
 .card {
-    background: #060606;
+    background: rgba(0,0,0,0.75);
     border-left: 4px solid var(--red);
-    padding: 25px;
-    margin-bottom: 30px;
-    transition: 0.3s;
-}
-
-.card:hover {
-    box-shadow: 0 0 25px rgba(255,0,34,0.5);
+    padding: 28px;
+    margin-bottom: 35px;
 }
 
 /* =====================
-   SKILLS LIST
+   SKILLS
 ===================== */
 .skills {
     list-style: none;
@@ -157,29 +156,27 @@ section h2 {
 
 .skills li {
     border: 1px solid var(--red);
-    padding: 6px 14px;
     color: var(--red);
+    padding: 6px 14px;
     font-size: 0.85rem;
 }
 
 /* =====================
-   MODULES (FIXED & READABLE)
+   MODULES (FIXED)
 ===================== */
 .module {
-    background: #000;
+    background: rgba(0,0,0,0.9);
     border-left: 4px solid var(--red);
-    padding: 22px;
-    margin: 26px 0;
-    opacity: 0;
-    transform: translateX(-60px);
-    transition: 0.6s ease-out;
+    padding: 20px;
+    margin: 22px 0;
+    opacity: 1;                /* 🔥 FIX */
+    transform: none;           /* 🔥 FIX */
 }
 
 .module h4 {
     color: var(--red);
     margin-bottom: 8px;
     text-transform: uppercase;
-    letter-spacing: 1px;
 }
 
 .module h4::before {
@@ -189,7 +186,6 @@ section h2 {
 .module p {
     color: var(--white);
     font-size: 0.95rem;
-    line-height: 1.6;
 }
 
 /* =====================
@@ -198,7 +194,7 @@ section h2 {
 .toggle .content {
     max-height: 0;
     overflow: hidden;
-    transition: max-height 0.5s ease;
+    transition: max-height 0.4s ease;
 }
 
 .toggle:hover .content {
@@ -206,25 +202,12 @@ section h2 {
 }
 
 /* =====================
-   ANIMATIONS
-===================== */
-.animate {
-    opacity: 0;
-    transform: translateY(50px);
-    transition: 0.8s ease;
-}
-
-.animate.visible {
-    opacity: 1;
-    transform: translateY(0);
-}
-
-/* =====================
    FOOTER
 ===================== */
 footer {
-    padding: 40px;
     text-align: center;
+    padding: 40px;
     color: var(--muted);
     border-top: 1px solid #111;
 }
+
