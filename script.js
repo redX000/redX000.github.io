@@ -165,3 +165,25 @@ document.addEventListener("DOMContentLoaded", () => {
         setTimeout(() => terminal.remove(), 800);
     });
 });
+/* =====================
+   ATTACK CHAIN OBSERVER
+===================== */
+
+const attackSection = document.querySelector('.attack-chain');
+
+if (attackSection) {
+    const attackObserver = new IntersectionObserver(
+        entries => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    attackSection.classList.add('attack-active');
+                    attackObserver.unobserve(attackSection); // run once
+                }
+            });
+        },
+        { threshold: 0.2 }
+    );
+
+    attackObserver.observe(attackSection);
+}
+
