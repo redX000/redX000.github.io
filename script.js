@@ -96,58 +96,72 @@ document.querySelectorAll(".animate").forEach(section => {
 });
 
 /* =====================
-   TERMINAL BOOT SCRIPT
+   TERMINAL BOOT SCRIPT (SAFE)
 ===================== */
 
-const terminalLines = [
-    "Initializing REDX Offensive Framework...",
-    "Loading threat modules........[OK]",
-    "Injecting payloads.............[OK]",
-    "Bypassing perimeter defenses...[OK]",
-    "Enumerating attack surface.....[OK]",
-    "Establishing C2 channel........[OK]",
-    "",
-    "User: yassine",
-    "Role: RED TEAM OPERATOR",
-    "",
-    "ACCESS GRANTED",
-    "",
-    "Launching portfolio interface..."
-];
+document.addEventListener("DOMContentLoaded", () => {
+    const terminal = document.getElementById("terminal");
+    const terminalText = document.getElementById("terminal-text");
 
-const terminal = document.getElementById("terminal");
-const terminalText = document.getElementById("terminal-text");
-
-let lineIndex = 0;
-let charIndex = 0;
-   function typeLine() {
-    if (lineIndex >= terminalLines.length) {
-        setTimeout(() => {
-            terminal.classList.add("fade-out");
-        }, 800);
+    if (!terminal || !terminalText) {
+        console.error("Terminal elements not found");
         return;
     }
 
-    const line = terminalLines[lineIndex];
+    const lines = [
+        "Initializing REDX Offensive Framework...",
+        "Loading threat modules........[OK]",
+        "Injecting payloads.............[OK]",
+        "Bypassing perimeter defenses...[OK]",
+        "Enumerating attack surface.....[OK]",
+        "Establishing C2 channel........[OK]",
+        "",
+        "User: yassine",
+        "Role: RED TEAM OPERATOR",
+        "",
+        "ACCESS GRANTED",
+        "",
+        "Launching portfolio interface..."
+    ];
 
-    if (charIndex < line.length) {
-        terminalText.textContent += line.charAt(charIndex);
-        charIndex++;
-        setTimeout(typeLine, 35);
-    } else {
-        terminalText.textContent += "\n";
+    let line = 0;
+    let char = 0;
 
-        // 🔴 GLITCH WHEN ACCESS GRANTED
-        if (line === "ACCESS GRANTED") {
-            terminalText.classList.add("glitch");
+    function type() {
+        if (line >= lines.length) {
             setTimeout(() => {
-                terminalText.classList.remove("glitch");
-            }, 350);
+                terminal.classList.add("fade-out");
+                setTimeout(() => terminal.remove(), 1500);
+            }, 800);
+            return;
         }
 
-        lineIndex++;
-        charIndex = 0;
-        setTimeout(typeLine, 300);
+        if (char < lines[line].length) {
+            terminalText.textContent += lines[line][char];
+            char++;
+            setTimeout(type, 30);
+        } else {
+            terminalText.textContent += "\n";
+
+            // 🔴 GLITCH ACCESS GRANTED
+            if (lines[line] === "ACCESS GRANTED") {
+                terminalText.classList.add("glitch");
+                setTimeout(() => {
+                    terminalText.classList.remove("glitch");
+                }, 350);
+            }
+
+            line++;
+            char = 0;
+            setTimeout(type, 250);
+        }
     }
-}
- 
+
+    setTimeout(type, 500);
+
+    // 🧨 EMERGENCY SKIP (click to continue)
+    terminal.addEventListener("click", () => {
+        terminal.classList.add("fade-out");
+        setTimeout(() => terminal.remove(), 800);
+    });
+});
