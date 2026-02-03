@@ -211,3 +211,45 @@ footer {
     border-top: 1px solid #111;
 }
 
+/* =====================
+   TERMINAL BOOT INTRO
+===================== */
+#terminal {
+    position: fixed;
+    inset: 0;
+    background: #000;
+    color: #ff0022;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.95rem;
+    padding: 40px;
+    z-index: 9999;
+    overflow: hidden;
+}
+
+#terminal-text {
+    white-space: pre-wrap;
+    line-height: 1.5;
+}
+
+/* Cursor blink */
+#terminal-text::after {
+    content: "█";
+    animation: blink 1s infinite;
+}
+
+@keyframes blink {
+    50% { opacity: 0; }
+}
+
+/* Fade out terminal */
+#terminal.fade-out {
+    animation: terminalFade 1.5s ease forwards;
+}
+
+@keyframes terminalFade {
+    to {
+        opacity: 0;
+        visibility: hidden;
+    }
+}
+
