@@ -38,17 +38,18 @@ body > *:not(.smoke-layer) {
 ===================== */
 .smoke-layer {
     position: fixed;
-    inset: -35%;
+    inset: -30%;
     background:
-        radial-gradient(circle at 20% 30%, rgba(255, 0, 0, 0.45), transparent 55%),
-        radial-gradient(circle at 80% 70%, rgba(255, 0, 0, 0.35), transparent 60%),
-        radial-gradient(circle at 50% 50%, rgba(0, 0, 0, 0.85), transparent 70%);
-    filter: blur(100px);
+        radial-gradient(circle at 25% 30%, rgba(255, 0, 0, 0.5), transparent 55%),
+        radial-gradient(circle at 75% 65%, rgba(255, 0, 0, 0.4), transparent 60%),
+        radial-gradient(circle at 50% 50%, rgba(0, 0, 0, 0.9), transparent 70%);
+    filter: blur(90px);
     opacity: 1;
     z-index: 1;
     pointer-events: none;
-    animation: smokeDrift 80s linear infinite;
+    animation: smokeDrift 60s linear infinite;
 }
+
 
 @keyframes smokeDrift {
     0% { transform: translate(0, 0) scale(1); }
@@ -293,3 +294,4 @@ footer {
     font-size: 0.8rem;
     color: #777;
 }
+
