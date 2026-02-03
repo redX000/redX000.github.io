@@ -24,33 +24,45 @@ body {
 }
 
 /* =====================
-   SMOKE BACKGROUND (VISIBLE)
+   NEON GLAZE (AMBIENT ONLY)
 ===================== */
-.smoke-layer {
+body::before {
+    content: "";
     position: fixed;
-    top: -30%;
-    left: -30%;
-    width: 160%;
-    height: 160%;
+    inset: -20%;
     background:
-        radial-gradient(circle at 30% 40%, rgba(255,255,255,0.12), transparent 60%),
-        radial-gradient(circle at 70% 60%, rgba(255,255,255,0.10), transparent 65%),
-        radial-gradient(circle at 50% 50%, rgba(255,255,255,0.08), transparent 70%);
+        radial-gradient(circle at 20% 25%, rgba(255, 0, 0, 0.15), transparent 55%),
+        radial-gradient(circle at 80% 70%, rgba(255, 0, 0, 0.12), transparent 60%);
     filter: blur(120px);
-    opacity: 0.8;
-    animation: smokePan 45s linear infinite;
+    opacity: 0.7;
     z-index: 0;
     pointer-events: none;
 }
 
-/* Smoke movement */
-@keyframes smokePan {
-    0%   { transform: translateX(-10%) translateY(-5%); }
-    50%  { transform: translateX(10%) translateY(5%); }
-    100% { transform: translateX(-10%) translateY(-5%); }
+/* =====================
+   SMOKE BACKGROUND (WHITE PANORAMIC)
+===================== */
+.smoke-layer {
+    position: fixed;
+    inset: -30%;
+    background:
+        radial-gradient(circle at 30% 40%, rgba(255,255,255,0.14), transparent 60%),
+        radial-gradient(circle at 70% 60%, rgba(255,255,255,0.10), transparent 65%),
+        radial-gradient(circle at 50% 50%, rgba(255,255,255,0.08), transparent 70%);
+    filter: blur(130px);
+    opacity: 0.85;
+    animation: smokePan 50s linear infinite;
+    z-index: 0;
+    pointer-events: none;
 }
 
-/* Keep all content above smoke */
+@keyframes smokePan {
+    0%   { transform: translate(-8%, -4%) scale(1); }
+    50%  { transform: translate(8%, 4%) scale(1.05); }
+    100% { transform: translate(-8%, -4%) scale(1); }
+}
+
+/* Keep content above effects */
 body > *:not(.smoke-layer) {
     position: relative;
     z-index: 1;
@@ -67,16 +79,11 @@ body > *:not(.smoke-layer) {
     background: transparent;
 }
 
-.hero h1 {
+.hero h1,
+.hero h2 {
     text-shadow:
         0 0 8px rgba(255, 0, 0, 0.9),
-        0 0 35px rgba(255, 0, 0, 0.6);
-}
-
-.hero h2,
-h2 {
-    text-shadow:
-        0 0 6px rgba(255, 0, 0, 0.6);
+        0 0 28px rgba(255, 0, 0, 0.55);
 }
 
 .hero p {
@@ -130,11 +137,14 @@ section {
     margin-bottom: 100px;
 }
 
-section h2 {
+section > h2 {
     color: var(--red);
     margin-bottom: 30px;
     text-transform: uppercase;
     letter-spacing: 2px;
+    text-shadow:
+        0 0 6px rgba(255, 0, 0, 0.75),
+        0 0 22px rgba(255, 0, 0, 0.45);
 }
 
 /* =====================
@@ -165,21 +175,20 @@ section h2 {
 }
 
 /* =====================
-   MODULES (FIXED)
+   MODULES (FIXED + VISIBLE)
 ===================== */
 .module {
     background: rgba(0,0,0,0.9);
     border-left: 4px solid var(--red);
     padding: 20px;
     margin: 22px 0;
-    opacity: 1;                /* 🔥 FIX */
-    transform: none;           /* 🔥 FIX
- /* }  */
 }
+
 .module h4 {
     color: var(--red);
     margin-bottom: 8px;
     text-transform: uppercase;
+    text-shadow: none;
 }
 
 .module h4::before {
@@ -193,7 +202,7 @@ section h2 {
 
 /* =====================
    TOGGLE REPORTS
-/* =====================  */
+===================== */
 .toggle .content {
     max-height: 0;
     overflow: hidden;
@@ -221,7 +230,7 @@ footer {
     position: fixed;
     inset: 0;
     background: #000;
-    color: #ff0022;
+    color: var(--red);
     font-family: 'JetBrains Mono', monospace;
     font-size: 0.95rem;
     padding: 40px;
@@ -234,7 +243,6 @@ footer {
     line-height: 1.5;
 }
 
-/* Cursor blink */
 #terminal-text::after {
     content: "█";
     animation: blink 1s infinite;
@@ -244,7 +252,6 @@ footer {
     50% { opacity: 0; }
 }
 
-/* Fade out terminal */
 #terminal.fade-out {
     animation: terminalFade 1.5s ease forwards;
 }
@@ -255,22 +262,7 @@ footer {
         visibility: hidden;
     }
 }
-/* =====================
-   NEON GLAZE (AMBIENT)
-===================== */
 
-body::before {
-    content: "";
-    position: fixed;
-    inset: -20%;
-    background:
-        radial-gradient(circle at 20% 25%, rgba(255, 0, 0, 0.15), transparent 55%),
-        radial-gradient(circle at 80% 70%, rgba(255, 0, 0, 0.12), transparent 60%);
-    filter: blur(120px);
-    opacity: 0.7;
-    z-index: 0;
-    pointer-events: none;
-}
 
 
 
