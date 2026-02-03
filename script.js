@@ -120,8 +120,7 @@ const terminalText = document.getElementById("terminal-text");
 
 let lineIndex = 0;
 let charIndex = 0;
-
-function typeLine() {
+   function typeLine() {
     if (lineIndex >= terminalLines.length) {
         setTimeout(() => {
             terminal.classList.add("fade-out");
@@ -137,13 +136,18 @@ function typeLine() {
         setTimeout(typeLine, 35);
     } else {
         terminalText.textContent += "\n";
+
+        // 🔴 GLITCH WHEN ACCESS GRANTED
+        if (line === "ACCESS GRANTED") {
+            terminalText.classList.add("glitch");
+            setTimeout(() => {
+                terminalText.classList.remove("glitch");
+            }, 350);
+        }
+
         lineIndex++;
         charIndex = 0;
         setTimeout(typeLine, 300);
     }
 }
-
-window.addEventListener("load", () => {
-    setTimeout(typeLine, 500);
-});
-
+ 
