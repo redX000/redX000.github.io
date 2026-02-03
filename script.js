@@ -95,3 +95,55 @@ document.querySelectorAll(".animate").forEach(section => {
   }
 });
 
+/* =====================
+   TERMINAL BOOT SCRIPT
+===================== */
+
+const terminalLines = [
+    "Initializing REDX Offensive Framework...",
+    "Loading threat modules........[OK]",
+    "Injecting payloads.............[OK]",
+    "Bypassing perimeter defenses...[OK]",
+    "Enumerating attack surface.....[OK]",
+    "Establishing C2 channel........[OK]",
+    "",
+    "User: yassine",
+    "Role: RED TEAM OPERATOR",
+    "",
+    "ACCESS GRANTED",
+    "",
+    "Launching portfolio interface..."
+];
+
+const terminal = document.getElementById("terminal");
+const terminalText = document.getElementById("terminal-text");
+
+let lineIndex = 0;
+let charIndex = 0;
+
+function typeLine() {
+    if (lineIndex >= terminalLines.length) {
+        setTimeout(() => {
+            terminal.classList.add("fade-out");
+        }, 800);
+        return;
+    }
+
+    const line = terminalLines[lineIndex];
+
+    if (charIndex < line.length) {
+        terminalText.textContent += line.charAt(charIndex);
+        charIndex++;
+        setTimeout(typeLine, 35);
+    } else {
+        terminalText.textContent += "\n";
+        lineIndex++;
+        charIndex = 0;
+        setTimeout(typeLine, 300);
+    }
+}
+
+window.addEventListener("load", () => {
+    setTimeout(typeLine, 500);
+});
+
