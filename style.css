@@ -17,7 +17,7 @@
 }
 
 /* =====================
-   BODY & BACKGROUND
+   BODY
 ===================== */
 body {
     background: var(--black);
@@ -25,65 +25,35 @@ body {
     line-height: 1.7;
     overflow-x: hidden;
     position: relative;
-    z-index: 1;
 }
 
-}
+/* CONTENT ABOVE SMOKE */
 body > *:not(.smoke-layer) {
     position: relative;
     z-index: 2;
 }
+
 /* =====================
-   SMOKE ATMOSPHERE (REAL LAYER)
+   SMOKE ATMOSPHERE (VISIBLE)
 ===================== */
 .smoke-layer {
     position: fixed;
-    inset: -40%;
+    inset: -35%;
     background:
-        radial-gradient(circle at 20% 30%, rgba(255, 0, 0, 0.35), transparent 55%),
-        radial-gradient(circle at 80% 70%, rgba(255, 0, 0, 0.30), transparent 60%),
-        radial-gradient(circle at 50% 50%, rgba(0, 0, 0, 0.95), transparent 70%);
-    filter: blur(120px);
-    opacity: 0.9;
-    z-index: 0;
+        radial-gradient(circle at 20% 30%, rgba(255, 0, 0, 0.45), transparent 55%),
+        radial-gradient(circle at 80% 70%, rgba(255, 0, 0, 0.35), transparent 60%),
+        radial-gradient(circle at 50% 50%, rgba(0, 0, 0, 0.85), transparent 70%);
+    filter: blur(100px);
+    opacity: 1;
+    z-index: 1;
     pointer-events: none;
-    animation: smokeDrift 70s linear infinite;
-}
-
-/* SLOW DRIFT */
-@keyframes smokeDrift {
-    0% {
-        transform: translate(0, 0) scale(1);
-    }
-    50% {
-        transform: translate(-6%, -4%) scale(1.08);
-    }
-    100% {
-        transform: translate(0, 0) scale(1);
-    }
-}
-/* SMOKE / HAZE */
-body::after {
-    content: "";
-    position: fixed;
-    inset: -30%;
-    background:
-        radial-gradient(circle at 20% 30%, rgba(255, 0, 0, 0.25), transparent 55%),
-        radial-gradient(circle at 80% 70%, rgba(255, 0, 0, 0.2), transparent 60%),
-        radial-gradient(circle at 50% 50%, rgba(0, 0, 0, 0.95), transparent 70%);
-    filter: blur(110px);
-    opacity: 0.95;
-    z-index: 0;
-    pointer-events: none;
-    animation: smokeDrift 60s linear infinite;
-    mix-blend-mode: screen;
-
+    animation: smokeDrift 80s linear infinite;
 }
 
 @keyframes smokeDrift {
-    0% { transform: translate(0,0) scale(1); }
-    50% { transform: translate(-5%, -3%) scale(1.05); }
-    100% { transform: translate(0,0) scale(1); }
+    0% { transform: translate(0, 0) scale(1); }
+    50% { transform: translate(-6%, -4%) scale(1.08); }
+    100% { transform: translate(0, 0) scale(1); }
 }
 
 /* =====================
@@ -94,7 +64,7 @@ body::after {
     display: flex;
     align-items: center;
     padding: 0 8%;
-    background: var(--black);
+    background: transparent;
     border-bottom: 3px solid var(--red);
 }
 
@@ -103,7 +73,7 @@ body::after {
     letter-spacing: 4px;
     text-shadow:
         0 0 10px var(--red),
-        0 0 40px rgba(255,0,0,0.9);
+        0 0 40px rgba(255, 0, 0, 0.9);
 }
 
 .accent {
@@ -201,7 +171,7 @@ h2 {
 .card:hover {
     box-shadow:
         0 0 0 2px var(--red),
-        0 0 40px rgba(255,0,0,0.7);
+        0 0 40px rgba(255, 0, 0, 0.7);
 }
 
 .card h3 {
@@ -273,7 +243,7 @@ h2 {
 }
 
 /* =====================
-   GLITCH
+   GLITCH EFFECT
 ===================== */
 .glitch-active {
     animation: glitch 0.25s linear;
@@ -323,9 +293,3 @@ footer {
     font-size: 0.8rem;
     color: #777;
 }
-
-
-
-
-
-
