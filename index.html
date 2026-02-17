@@ -4,38 +4,87 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Yassine Lasraoui | Red Team Cybersecurity</title>
+    
+    <!-- SEO Meta Tags -->
+    <meta name="description" content="Yassine Lasraoui - Red Team Cybersecurity Specialist. Ethical Hacking, Penetration Testing, Threat Intelligence. BSc Cybersecurity at Solent University.">
+    <meta name="keywords" content="red team, cybersecurity, ethical hacking, penetration testing, threat intelligence, security researcher">
+    <meta name="author" content="Yassine Lasraoui">
+    
+    <!-- Open Graph Meta Tags -->
+    <meta property="og:title" content="Yassine Lasraoui | Red Team Cybersecurity">
+    <meta property="og:description" content="Red Team Cybersecurity Specialist - Ethical Hacking & Penetration Testing">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://redx000.github.io">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E🔴%3C/text%3E%3C/svg%3E">
 
     <!-- Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
+<!-- SKIP TERMINAL BUTTON -->
+<button id="skip-terminal" class="skip-btn">Skip Intro <i class="fas fa-forward"></i></button>
+
 <!-- TERMINAL INTRO -->
 <div id="terminal">
     <pre id="terminal-text"></pre>
 </div>
     
 <div class="smoke-layer"></div>
+
+<!-- NAVIGATION BAR -->
+<nav id="navbar">
+    <div class="nav-container">
+        <a href="#" class="nav-logo">REDX<span class="accent">.</span></a>
+        <ul class="nav-menu">
+            <li><a href="#profile"><i class="fas fa-user"></i> Profile</a></li>
+            <li><a href="#skills"><i class="fas fa-shield-alt"></i> Skills</a></li>
+            <li><a href="#education"><i class="fas fa-graduation-cap"></i> Education</a></li>
+            <li><a href="#projects"><i class="fas fa-code"></i> Projects</a></li>
+            <li><a href="#reports"><i class="fas fa-file-alt"></i> Reports</a></li>
+            <li><a href="#contact"><i class="fas fa-envelope"></i> Contact</a></li>
+        </ul>
+        <button class="nav-toggle" id="nav-toggle">
+            <i class="fas fa-bars"></i>
+        </button>
+    </div>
+</nav>
+
 <!-- HERO -->
 <header class="hero animate">
     <div class="hero-content">
         <h1><span class="accent glitch">Yassine</span> Lasraoui</h1>
         <h2>Red Team Cybersecurity</h2>
         <p>
-            Ethical Hacking • Penetration Testing • Threat Intelligence<br>
+            Ethical Hacking • Penetration Testing • Threat Intelligence  
+
             An adversarial mindset focused on real-world attack simulation and reporting
         </p>
 
         <div class="hero-actions">
-            <a href="#projects" class="btn primary">View Projects</a>
-            <a href="#reports" class="btn">Technical Reports</a>
+            <a href="#projects" class="btn primary"><i class="fas fa-rocket"></i> View Projects</a>
+            <a href="#reports" class="btn"><i class="fas fa-file-pdf"></i> Technical Reports</a>
         </div>
 
         <div class="links">
-            <a href="https://www.linkedin.com/in/yassine-lasraoui158473299/" target="_blank">LinkedIn</a>
-            <a href="mailto:yassineax10@gmail.com">Email</a>
-            <a href="tel:+447442928375">Phone</a>
+            <a href="https://www.linkedin.com/in/yassine-lasraoui158473299/" target="_blank" title="LinkedIn">
+                <i class="fab fa-linkedin"></i> LinkedIn
+            </a>
+            <a href="https://github.com/redX000" target="_blank" title="GitHub">
+                <i class="fab fa-github"></i> GitHub
+            </a>
+            <a href="mailto:yassineax10@gmail.com" title="Email">
+                <i class="fas fa-envelope"></i> Email
+            </a>
+            <a href="tel:+447442928375" title="Phone">
+                <i class="fas fa-phone"></i> Phone
+            </a>
         </div>
     </div>
 </header>
@@ -43,8 +92,8 @@
 <main>
 
 <!-- PROFILE -->
-<section class="animate">
-    <h2>Profile</h2>
+<section id="profile" class="animate">
+    <h2><i class="fas fa-user-shield"></i> Profile</h2>
     <p>
         Red team–oriented cybersecurity student with hands-on experience in ethical hacking,
         penetration testing, threat intelligence, and adversarial techniques. Experienced in
@@ -58,34 +107,34 @@
 </section>
 
 <!-- SKILLS -->
-<section class="animate">
-    <h2>Red Team Skillset</h2>
+<section id="skills" class="animate">
+    <h2><i class="fas fa-shield-alt"></i> Red Team Skillset</h2>
     <ul class="skills">
-        <li>Penetration Testing</li>
-        <li>Ethical Hacking</li>
-        <li>Vulnerability Assessment</li>
-        <li>Threat Intelligence</li>
-        <li>Social Engineering</li>
-        <li>Network Exploitation</li>
-        <li>Digital Forensics (Adversarial Perspective)</li>
-        <li>Security Reporting</li>
+        <li><i class="fas fa-bug"></i> Penetration Testing</li>
+        <li><i class="fas fa-user-secret"></i> Ethical Hacking</li>
+        <li><i class="fas fa-search"></i> Vulnerability Assessment</li>
+        <li><i class="fas fa-brain"></i> Threat Intelligence</li>
+        <li><i class="fas fa-users"></i> Social Engineering</li>
+        <li><i class="fas fa-network-wired"></i> Network Exploitation</li>
+        <li><i class="fas fa-fingerprint"></i> Digital Forensics (Adversarial Perspective )</li>
+        <li><i class="fas fa-file-contract"></i> Security Reporting</li>
     </ul>
 </section>
 
 <!-- EDUCATION -->
-<section class="animate">
-    <h2>Education</h2>
+<section id="education" class="animate">
+    <h2><i class="fas fa-graduation-cap"></i> Education</h2>
 
     <div class="card">
         <h3>BSc Cybersecurity (Honours)</h3>
         <p><strong>Solent University — Southampton</strong></p>
-        <p>2023 – Present</p>
+        <p><i class="fas fa-calendar"></i> 2023 – Present</p>
     </div>
 </section>
 
 <!-- MODULES -->
 <section class="animate attack-chain">
-    <h2>Modules & Learning Outcomes</h2>
+    <h2><i class="fas fa-book"></i> Modules & Learning Outcomes</h2>
 
     <!-- YEAR 1 -->
     <div class="card">
@@ -190,27 +239,49 @@
 
 <!-- PROJECTS -->
 <section id="projects" class="animate">
-    <h2>Projects</h2>
+    <h2><i class="fas fa-code"></i> Projects</h2>
 
-    <div class="card">
+    <div class="card project-card">
         <h3>REDX — Cybersecurity Platform</h3>
-        <p>Founder and red team lead of an all-in-one cybersecurity platform.</p>
-        <p class="tag">Offensive Security • Threat Simulation • Leadership</p>
+        <p>Founder and red team lead of an all-in-one cybersecurity platform focused on offensive security operations, threat simulation, and security research.</p>
+        <p class="tag">
+            <i class="fas fa-shield-virus"></i> Offensive Security • 
+            <i class="fas fa-crosshairs"></i> Threat Simulation • 
+            <i class="fas fa-users-cog"></i> Leadership
+        </p>
+        <div class="project-links">
+            <a href="https://github.com/redX000" target="_blank" class="btn-small">
+                <i class="fab fa-github"></i> View on GitHub
+            </a>
+        </div>
     </div>
 
-    <div class="card">
+    <div class="card project-card">
         <h3>Ethical Hacking Labs</h3>
-        <p>Hands-on penetration testing labs covering recon, exploitation, and reporting.</p>
-        <p class="tag">Recon • Exploitation • Reporting</p>
+        <p>Hands-on penetration testing labs covering reconnaissance, vulnerability assessment, exploitation techniques, and professional security reporting.</p>
+        <p class="tag">
+            <i class="fas fa-search"></i> Recon • 
+            <i class="fas fa-bomb"></i> Exploitation • 
+            <i class="fas fa-file-alt"></i> Reporting
+        </p>
+        <div class="project-links">
+            <a href="https://github.com/redX000" target="_blank" class="btn-small">
+                <i class="fab fa-github"></i> View on GitHub
+            </a>
+        </div>
     </div>
 </section>
 
 <!-- REPORTS -->
 <section id="reports" class="animate">
-    <h2>Technical Reports & Write-Ups</h2>
+    <h2><i class="fas fa-file-alt"></i> Technical Reports & Write-Ups</h2>
+    
+    <p class="section-note">
+        <i class="fas fa-info-circle"></i> Click on any report to expand and view details.
+    </p>
 
     <div class="card toggle">
-        <h3>Penetration Testing Report — Web Application</h3>
+        <h3><i class="fas fa-chevron-right toggle-icon"></i> Penetration Testing Report — Web Application</h3>
         <div class="content">
             <p>
                 Full penetration testing engagement covering reconnaissance,
@@ -219,21 +290,21 @@
             </p>
 
             <ul class="skills">
-                <li>Reconnaissance</li>
-                <li>Vulnerability Analysis</li>
-                <li>Exploitation</li>
-                <li>Risk Scoring</li>
-                <li>Reporting</li>
+                <li><i class="fas fa-search"></i> Reconnaissance</li>
+                <li><i class="fas fa-bug"></i> Vulnerability Analysis</li>
+                <li><i class="fas fa-bomb"></i> Exploitation</li>
+                <li><i class="fas fa-chart-line"></i> Risk Scoring</li>
+                <li><i class="fas fa-file-contract"></i> Reporting</li>
             </ul>
 
-            <a class="btn" href="assets/reports/pentest-report.pdf" target="_blank">
-                View Full Report (PDF)
+            <a class="btn" href="#reports" onclick="alert('Please add your PDF report to assets/reports/pentest-report.pdf' )">
+                <i class="fas fa-file-pdf"></i> View Full Report (PDF)
             </a>
         </div>
     </div>
 
     <div class="card toggle">
-        <h3>Threat Intelligence Analysis — Real-World Threat Actors</h3>
+        <h3><i class="fas fa-chevron-right toggle-icon"></i> Threat Intelligence Analysis — Real-World Threat Actors</h3>
         <div class="content">
             <p>
                 In-depth threat intelligence report analysing threat actors,
@@ -242,20 +313,20 @@
             </p>
 
             <ul class="skills">
-                <li>Threat Actor Profiling</li>
-                <li>MITRE ATT&CK</li>
-                <li>Open-Source Intelligence (OSINT)</li>
-                <li>Risk Assessment</li>
+                <li><i class="fas fa-user-secret"></i> Threat Actor Profiling</li>
+                <li><i class="fas fa-crosshairs"></i> MITRE ATT&CK</li>
+                <li><i class="fas fa-binoculars"></i> Open-Source Intelligence (OSINT)</li>
+                <li><i class="fas fa-exclamation-triangle"></i> Risk Assessment</li>
             </ul>
 
-            <a class="btn" href="assets/reports/threat-intel.pdf" target="_blank">
-                View Full Report (PDF)
+            <a class="btn" href="#reports" onclick="alert('Please add your PDF report to assets/reports/threat-intel.pdf')">
+                <i class="fas fa-file-pdf"></i> View Full Report (PDF)
             </a>
         </div>
     </div>
 
     <div class="card toggle">
-        <h3>Digital Forensics Case Study</h3>
+        <h3><i class="fas fa-chevron-right toggle-icon"></i> Digital Forensics Case Study</h3>
         <div class="content">
             <p>
                 Practical forensic investigation focusing on evidence
@@ -264,19 +335,19 @@
             </p>
 
             <ul class="skills">
-                <li>Evidence Handling</li>
-                <li>Log Analysis</li>
-                <li>Incident Reconstruction</li>
+                <li><i class="fas fa-fingerprint"></i> Evidence Handling</li>
+                <li><i class="fas fa-file-code"></i> Log Analysis</li>
+                <li><i class="fas fa-project-diagram"></i> Incident Reconstruction</li>
             </ul>
 
-            <a class="btn" href="assets/reports/digital-forensics.pdf" target="_blank">
-                View Full Report (PDF)
+            <a class="btn" href="#reports" onclick="alert('Please add your PDF report to assets/reports/digital-forensics.pdf')">
+                <i class="fas fa-file-pdf"></i> View Full Report (PDF)
             </a>
         </div>
     </div>
 
     <div class="card toggle">
-        <h3>Industrial Consulting Cybersecurity Report</h3>
+        <h3><i class="fas fa-chevron-right toggle-icon"></i> Industrial Consulting Cybersecurity Report</h3>
         <div class="content">
             <p>
                 Real-world consulting project delivering security analysis,
@@ -285,14 +356,14 @@
             </p>
 
             <ul class="skills">
-                <li>Risk Analysis</li>
-                <li>Security Architecture</li>
-                <li>Professional Reporting</li>
-                <li>Client Communication</li>
+                <li><i class="fas fa-chart-pie"></i> Risk Analysis</li>
+                <li><i class="fas fa-sitemap"></i> Security Architecture</li>
+                <li><i class="fas fa-file-contract"></i> Professional Reporting</li>
+                <li><i class="fas fa-handshake"></i> Client Communication</li>
             </ul>
 
-            <a class="btn" href="assets/reports/consulting-report.pdf" target="_blank">
-                View Full Report (PDF)
+            <a class="btn" href="#reports" onclick="alert('Please add your PDF report to assets/reports/consulting-report.pdf')">
+                <i class="fas fa-file-pdf"></i> View Full Report (PDF)
             </a>
         </div>
     </div>
@@ -302,35 +373,82 @@
 
 <!-- CERTS -->
 <section class="animate">
-    <h2>Certifications & Training</h2>
+    <h2><i class="fas fa-certificate"></i> Certifications & Training</h2>
     <ul class="skills">
-        <li>Cisco CyberOps Associate</li>
-        <li>Ethical Hacking & Pen Testing (Academic)</li>
-        <li>TryHackMe — Red Team Path (In Progress)</li>
-        <li>Hack The Box Labs</li>
+        <li><i class="fas fa-award"></i> Cisco CyberOps Associate</li>
+        <li><i class="fas fa-graduation-cap"></i> Ethical Hacking & Pen Testing (Academic)</li>
+        <li><i class="fas fa-spinner"></i> TryHackMe — Red Team Path (In Progress)</li>
+        <li><i class="fas fa-cube"></i> Hack The Box Labs</li>
     </ul>
 </section>
 
 <!-- LANGUAGES -->
 <section class="animate">
-    <h2>Languages</h2>
+    <h2><i class="fas fa-language"></i> Languages</h2>
     <ul class="skills">
-        <li>Arabic — Native</li>
-        <li>English — Fluent</li>
-        <li>French — Advanced</li>
+        <li><i class="fas fa-globe"></i> Arabic — Native</li>
+        <li><i class="fas fa-globe"></i> English — Fluent</li>
+        <li><i class="fas fa-globe"></i> French — Advanced</li>
     </ul>
+</section>
+
+<!-- CONTACT -->
+<section id="contact" class="animate">
+    <h2><i class="fas fa-envelope"></i> Get In Touch</h2>
+    
+    <div class="contact-container">
+        <div class="contact-info">
+            <div class="contact-item">
+                <i class="fas fa-envelope"></i>
+                <div>
+                    <h4>Email</h4>
+                    <a href="mailto:yassineax10@gmail.com">yassineax10@gmail.com</a>
+                </div>
+            </div>
+            
+            <div class="contact-item">
+                <i class="fas fa-phone"></i>
+                <div>
+                    <h4>Phone</h4>
+                    <a href="tel:+447442928375">+44 744 292 8375</a>
+                </div>
+            </div>
+            
+            <div class="contact-item">
+                <i class="fab fa-linkedin"></i>
+                <div>
+                    <h4>LinkedIn</h4>
+                    <a href="https://www.linkedin.com/in/yassine-lasraoui158473299/" target="_blank">Connect with me</a>
+                </div>
+            </div>
+            
+            <div class="contact-item">
+                <i class="fab fa-github"></i>
+                <div>
+                    <h4>GitHub</h4>
+                    <a href="https://github.com/redX000" target="_blank">View my code</a>
+                </div>
+            </div>
+        </div>
+    </div>
 </section>
 
 </main>
 
+<!-- BACK TO TOP BUTTON -->
+<button id="back-to-top" class="back-to-top" title="Back to top">
+    <i class="fas fa-arrow-up"></i>
+</button>
+
 <footer>
     <p>© 2026 Yassine Lasraoui — Red Team Cybersecurity Portfolio</p>
+    <p class="footer-links">
+        <a href="https://github.com/redX000" target="_blank"><i class="fab fa-github"></i></a>
+        <a href="https://www.linkedin.com/in/yassine-lasraoui158473299/" target="_blank"><i class="fab fa-linkedin"></i></a>
+        <a href="mailto:yassineax10@gmail.com"><i class="fas fa-envelope"></i></a>
+    </p>
 </footer>
 
 <script src="script.js"></script>
 </body>
 </html>
-
-
-
-
