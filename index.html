@@ -3,101 +3,93 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Yassine Lasraoui | Red Team Cybersecurity</title>
-    
-    <!-- SEO Meta Tags -->
-    <meta name="description" content="Yassine Lasraoui - Red Team Cybersecurity Specialist. Ethical Hacking, Penetration Testing, Threat Intelligence. BSc Cybersecurity at Solent University.">
-    <meta name="keywords" content="red team, cybersecurity, ethical hacking, penetration testing, threat intelligence, security researcher, redx000">
+    <title>REDX | Yassine Lasraoui — Red Team & Counter-Threat Operations</title>
+
+    <meta name="description" content="Yassine Lasraoui — Red Team Operator specializing in penetration testing, cybercrime analysis, counter-terrorism intelligence, and adversarial threat simulation.">
+    <meta name="keywords" content="red team, cybersecurity, ethical hacking, penetration testing, cybercrime, counter-terrorism, threat intelligence, OSINT, security researcher">
     <meta name="author" content="Yassine Lasraoui">
-    
-    <!-- Open Graph Meta Tags -->
-    <meta property="og:title" content="Yassine Lasraoui | Red Team Cybersecurity">
-    <meta property="og:description" content="Red Team Cybersecurity Specialist — Ethical Hacking, Penetration Testing & Custom Security Tools">
+
+    <meta property="og:title" content="REDX | Yassine Lasraoui — Counter-Threat Operations">
+    <meta property="og:description" content="Red Team Operator — Penetration Testing, Cybercrime Analysis & Counter-Terrorism Intelligence">
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://redx000.github.io">
-    
-    <!-- Favicon -->
+
     <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E🔴%3C/text%3E%3C/svg%3E">
-
-    <!-- Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
-    
-    <!-- Font Awesome -->
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-<!-- SKIP TERMINAL BUTTON -->
-<button id="skip-terminal" class="skip-btn">Skip Intro <i class="fas fa-forward"></i></button>
 
-<!-- TERMINAL INTRO -->
-<div id="terminal">
-    <pre id="terminal-text"></pre>
-</div>
-    
-<!-- PARTICLE CANVAS -->
-<canvas id="particle-canvas"></canvas>
-<div class="smoke-layer"></div>
+<button id="skip-terminal" class="skip-btn">SKIP <i class="fas fa-forward"></i></button>
+
+<div id="terminal"><pre id="terminal-text"></pre></div>
+
+<canvas id="matrix-canvas"></canvas>
+<div class="vignette"></div>
 <div class="scanline"></div>
+<div class="grid-overlay"></div>
 
-<!-- NAVIGATION BAR -->
+<!-- NAV -->
 <nav id="navbar">
     <div class="nav-container">
-        <a href="#" class="nav-logo">RED<span class="accent">X</span><span class="nav-cursor">_</span></a>
+        <a href="#" class="nav-logo">
+            <span class="logo-bracket">[</span>RED<span class="accent">X</span><span class="logo-bracket">]</span>
+            <span class="nav-cursor">_</span>
+        </a>
         <ul class="nav-menu">
-            <li><a href="#profile"><i class="fas fa-user-shield"></i> Profile</a></li>
-            <li><a href="#skills"><i class="fas fa-shield-halved"></i> Arsenal</a></li>
-            <li><a href="#projects"><i class="fas fa-code"></i> Projects</a></li>
-            <li><a href="#education"><i class="fas fa-graduation-cap"></i> Training</a></li>
-            <li><a href="#reports"><i class="fas fa-file-alt"></i> Reports</a></li>
-            <li><a href="#contact"><i class="fas fa-satellite-dish"></i> Contact</a></li>
+            <li><a href="#profile"><i class="fas fa-crosshairs"></i> PROFILE</a></li>
+            <li><a href="#arsenal"><i class="fas fa-shield-halved"></i> ARSENAL</a></li>
+            <li><a href="#projects"><i class="fas fa-terminal"></i> TOOLS</a></li>
+            <li><a href="#training"><i class="fas fa-skull-crossbones"></i> TRAINING</a></li>
+            <li><a href="#intel"><i class="fas fa-file-shield"></i> INTEL</a></li>
+            <li><a href="#comms"><i class="fas fa-satellite-dish"></i> COMMS</a></li>
         </ul>
-        <button class="nav-toggle" id="nav-toggle">
-            <i class="fas fa-bars"></i>
-        </button>
+        <button class="nav-toggle" id="nav-toggle"><i class="fas fa-bars"></i></button>
     </div>
 </nav>
 
 <!-- HERO -->
 <header class="hero animate">
     <div class="hero-content">
-        <div class="hero-badge">RED TEAM OPERATOR</div>
-        <h1><span class="accent glitch" data-text="Yassine">Yassine</span> Lasraoui</h1>
-        <h2 class="typed-wrap">$ <span id="typed-text"></span><span class="typed-cursor">|</span></h2>
+        <div class="hero-threat-level">
+            <span class="threat-dot"></span> THREAT LEVEL: <span class="accent">MAXIMUM</span>
+        </div>
+        <h1>
+            <span class="accent glitch" data-text="YASSINE">YASSINE</span>
+            <span class="surname">LASRAOUI</span>
+        </h1>
+        <div class="hero-title">RED TEAM OPERATOR <span class="separator">//</span> COUNTER-THREAT SPECIALIST</div>
+
+        <div class="typed-wrap">
+            <span class="prompt">root@redx:~$</span> <span id="typed-text"></span><span class="typed-cursor">█</span>
+        </div>
 
         <div class="hero-stats">
-            <div class="stat">
-                <span class="stat-num" data-count="6">0</span>
-                <span class="stat-label">Security Tools Built</span>
-            </div>
-            <div class="stat">
-                <span class="stat-num" data-count="3">0</span>
-                <span class="stat-label">Languages Spoken</span>
-            </div>
-            <div class="stat">
-                <span class="stat-num" data-count="12">0</span>
-                <span class="stat-label">Modules Completed</span>
-            </div>
+            <div class="stat"><span class="stat-num" data-count="6">0</span><span class="stat-label">WEAPONS BUILT</span></div>
+            <div class="stat-divider"></div>
+            <div class="stat"><span class="stat-num" data-count="17">0</span><span class="stat-label">MODULES CLEARED</span></div>
+            <div class="stat-divider"></div>
+            <div class="stat"><span class="stat-num" data-count="4">0</span><span class="stat-label">INTEL REPORTS</span></div>
         </div>
 
         <div class="hero-actions">
-            <a href="#projects" class="btn primary"><i class="fas fa-terminal"></i> View Arsenal</a>
-            <a href="#reports" class="btn"><i class="fas fa-file-shield"></i> Intel Reports</a>
-            <a href="https://github.com/redX000" target="_blank" class="btn"><i class="fab fa-github"></i> GitHub</a>
+            <a href="#projects" class="btn primary glitch-btn"><i class="fas fa-skull"></i> VIEW ARSENAL</a>
+            <a href="#intel" class="btn"><i class="fas fa-user-secret"></i> INTEL REPORTS</a>
+            <a href="https://github.com/redX000" target="_blank" class="btn"><i class="fab fa-github"></i> GITHUB</a>
         </div>
 
-        <div class="links">
-            <a href="https://www.linkedin.com/in/yassine-lasraoui158473299/" target="_blank" title="LinkedIn">
-                <i class="fab fa-linkedin"></i>
-            </a>
-            <a href="https://github.com/redX000" target="_blank" title="GitHub">
-                <i class="fab fa-github"></i>
-            </a>
-            <a href="mailto:yassineax10@gmail.com" title="Email">
-                <i class="fas fa-envelope"></i>
-            </a>
+        <div class="hero-links">
+            <a href="https://www.linkedin.com/in/yassine-lasraoui-158473299" target="_blank" title="LinkedIn"><i class="fab fa-linkedin"></i></a>
+            <a href="https://github.com/redX000" target="_blank" title="GitHub"><i class="fab fa-github"></i></a>
+            <a href="mailto:yassineax10@gmail.com" title="Email"><i class="fas fa-envelope"></i></a>
         </div>
+    </div>
+
+    <div class="hero-hud">
+        <div class="hud-item"><span class="hud-label">LOCATION</span><span class="hud-value">Southampton, UK</span></div>
+        <div class="hud-item"><span class="hud-label">AFFILIATION</span><span class="hud-value">Solent University</span></div>
+        <div class="hud-item"><span class="hud-label">CLEARANCE</span><span class="hud-value accent">CLASSIFIED</span></div>
     </div>
 </header>
 
@@ -105,397 +97,391 @@
 
 <!-- PROFILE -->
 <section id="profile" class="animate">
-    <h2><i class="fas fa-user-shield"></i> Profile</h2>
+    <h2><i class="fas fa-crosshairs"></i> OPERATOR PROFILE</h2>
     <div class="profile-grid">
         <div class="profile-text">
-            <p>
-                Red team–oriented cybersecurity specialist with hands-on experience in ethical hacking,
-                penetration testing, threat intelligence, and adversarial techniques. I build real
-                security tools, execute controlled attacks, and produce professional security reports.
-            </p>
-            <p>
-                Founder of the <strong class="accent">REDX</strong> cybersecurity platform initiative — 
-                building adaptive offensive and defensive security solutions. Currently pursuing a 
-                BSc in Cybersecurity at Solent University.
-            </p>
+            <div class="quote-block">
+                <p>"Security isn't about perfection — it's about staying one step ahead, because every system can be broken given enough time."</p>
+            </div>
+            <p>Red team operator and cybersecurity specialist with hands-on experience in penetration testing, cybercrime analysis, counter-terrorism intelligence, and adversarial threat simulation. I don't just find vulnerabilities — I build weapons to exploit them, and then build the defenses to stop them.</p>
+            <p>Focused on the intersection of <strong class="accent">cybercrime investigation</strong> and <strong class="accent">counter-terrorism operations</strong> — understanding how threat actors operate in the digital domain to disrupt, investigate, and neutralize threats before they materialize.</p>
+            <p>Founder of the <strong class="accent">REDX</strong> cybersecurity initiative — building next-generation offensive and defensive security solutions.</p>
         </div>
         <div class="profile-terminal">
             <div class="terminal-header">
-                <span class="dot red"></span>
-                <span class="dot yellow"></span>
-                <span class="dot green"></span>
-                <span class="terminal-title">whoami</span>
+                <span class="dot red"></span><span class="dot yellow"></span><span class="dot green"></span>
+                <span class="terminal-title">operator_profile.sh</span>
             </div>
-            <pre class="terminal-body">
-<span class="t-green">┌──(redx㉿kali)</span>-<span class="t-blue">[~]</span>
-<span class="t-green">└─$</span> cat /etc/redx/profile
-<span class="t-red">
-  Name:     Yassine Lasraoui
-  Handle:   redX000
-  Role:     Red Team Operator
-  Stack:    Python | Bash | SQL
-  Focus:    OffSec | OSINT | Tooling
-  Status:   Always hunting 🔴</span>
-            </pre>
+            <pre class="terminal-body"><span class="t-green">┌──(redx㉿kali)</span>-<span class="t-blue">[~/ops]</span>
+<span class="t-green">└─$</span> cat /etc/redx/operator.conf
+
+<span class="t-red">╔═══════════════════════════════════════╗
+║  OPERATOR DOSSIER — CLASSIFIED        ║
+╠═══════════════════════════════════════╣
+║  Name:     Yassine Lasraoui           ║
+║  Callsign: REDX-000                   ║
+║  Role:     Red Team Lead              ║
+║  Sector:   Cybercrime / Counter-CT    ║
+║  Stack:    Python │ Bash │ SQL │ C    ║
+║  Focus:    OffSec │ OSINT │ Forensics ║
+║  Threat:   APT-Grade                  ║
+║  Status:   ACTIVE 🔴                  ║
+╚═══════════════════════════════════════╝</span>
+
+<span class="t-green">└─$</span> <span class="blink-cursor">█</span></pre>
         </div>
     </div>
 </section>
 
-<!-- SKILLS / ARSENAL -->
-<section id="skills" class="animate">
-    <h2><i class="fas fa-shield-halved"></i> Arsenal</h2>
-    
-    <div class="skills-grid">
-        <div class="skill-category">
-            <h3><i class="fas fa-crosshairs"></i> Offensive</h3>
-            <ul class="skills">
-                <li><i class="fas fa-bug"></i> Penetration Testing</li>
-                <li><i class="fas fa-spider"></i> Web App Exploitation</li>
-                <li><i class="fas fa-network-wired"></i> Network Attacks</li>
-                <li><i class="fas fa-users"></i> Social Engineering</li>
-                <li><i class="fas fa-bomb"></i> Payload Development</li>
+<!-- ARSENAL -->
+<section id="arsenal" class="animate">
+    <h2><i class="fas fa-shield-halved"></i> TACTICAL ARSENAL</h2>
+
+    <div class="arsenal-grid">
+        <div class="arsenal-card">
+            <div class="arsenal-icon"><i class="fas fa-crosshairs"></i></div>
+            <h3>OFFENSIVE OPS</h3>
+            <ul>
+                <li>Penetration Testing</li>
+                <li>Web Application Exploitation</li>
+                <li>Network Attack & Lateral Movement</li>
+                <li>Social Engineering & Phishing</li>
+                <li>Payload Development</li>
+                <li>Red Team Engagement</li>
             </ul>
         </div>
-        <div class="skill-category">
-            <h3><i class="fas fa-binoculars"></i> Reconnaissance</h3>
-            <ul class="skills">
-                <li><i class="fas fa-search"></i> OSINT</li>
-                <li><i class="fas fa-sitemap"></i> Subdomain Enumeration</li>
-                <li><i class="fas fa-fingerprint"></i> Fingerprinting</li>
-                <li><i class="fas fa-brain"></i> Threat Intelligence</li>
-                <li><i class="fas fa-magnifying-glass"></i> Vulnerability Assessment</li>
+        <div class="arsenal-card">
+            <div class="arsenal-icon"><i class="fas fa-magnifying-glass"></i></div>
+            <h3>INTELLIGENCE</h3>
+            <ul>
+                <li>OSINT & Digital Reconnaissance</li>
+                <li>Threat Actor Profiling</li>
+                <li>Dark Web Monitoring</li>
+                <li>MITRE ATT&CK Framework</li>
+                <li>Cybercrime Investigation</li>
+                <li>Counter-Terrorism Analysis</li>
             </ul>
         </div>
-        <div class="skill-category">
-            <h3><i class="fas fa-wrench"></i> Tooling</h3>
-            <ul class="skills">
-                <li><i class="fab fa-python"></i> Python</li>
-                <li><i class="fas fa-terminal"></i> Bash</li>
-                <li><i class="fab fa-linux"></i> Kali Linux</li>
-                <li><i class="fas fa-database"></i> SQL</li>
-                <li><i class="fas fa-code"></i> Custom Tool Development</li>
+        <div class="arsenal-card">
+            <div class="arsenal-icon"><i class="fas fa-fingerprint"></i></div>
+            <h3>FORENSICS & DEFENSE</h3>
+            <ul>
+                <li>Digital Forensics & Evidence</li>
+                <li>Incident Response</li>
+                <li>Malware Analysis</li>
+                <li>Log Analysis & SIEM</li>
+                <li>Vulnerability Assessment</li>
+                <li>Security Architecture</li>
+            </ul>
+        </div>
+        <div class="arsenal-card">
+            <div class="arsenal-icon"><i class="fas fa-code"></i></div>
+            <h3>TOOLING</h3>
+            <ul>
+                <li>Python (Primary)</li>
+                <li>Bash / Shell Scripting</li>
+                <li>SQL & Database Exploitation</li>
+                <li>Kali Linux & Custom Distros</li>
+                <li>Custom Tool Development</li>
+                <li>Automation & CI/CD</li>
             </ul>
         </div>
     </div>
 </section>
 
-<!-- PROJECTS -->
+<!-- PROJECTS / TOOLS -->
 <section id="projects" class="animate">
-    <h2><i class="fas fa-code"></i> Security Tools</h2>
-    <p class="section-note"><i class="fas fa-terminal"></i> Custom-built offensive & defensive tools — all open source on GitHub</p>
+    <h2><i class="fas fa-terminal"></i> WEAPONS LAB</h2>
+    <p class="section-note"><i class="fas fa-radiation"></i> Custom-built offensive & defensive tools — open source on GitHub. Click to deploy.</p>
 
     <div class="projects-grid">
-
-        <div class="project-card" data-severity="high">
-            <div class="project-icon">🎣</div>
-            <h3>RedPhish</h3>
-            <p>Advanced phishing URL & email analyzer. Multi-layered detection with homoglyph analysis, brand impersonation, entropy scoring, and SPF/DKIM/DMARC validation.</p>
-            <div class="project-tags">
-                <span>Phishing Detection</span>
-                <span>Email Security</span>
-                <span>Python</span>
-            </div>
-            <div class="project-links">
-                <a href="https://github.com/redX000/RedPhish" target="_blank" class="btn-small"><i class="fab fa-github"></i> Source Code</a>
-            </div>
-        </div>
-
         <div class="project-card" data-severity="critical">
+            <div class="severity-badge critical">CRITICAL</div>
             <div class="project-icon">🕷️</div>
             <h3>VulnScan</h3>
-            <p>Web vulnerability scanner detecting XSS, SQL Injection, LFI, and security header misconfigurations. Auto form crawling with zero external dependencies.</p>
-            <div class="project-tags">
-                <span>XSS</span>
-                <span>SQLi</span>
-                <span>LFI</span>
-                <span>Web Security</span>
-            </div>
-            <div class="project-links">
-                <a href="https://github.com/redX000/VulnScan" target="_blank" class="btn-small"><i class="fab fa-github"></i> Source Code</a>
-            </div>
-        </div>
-
-        <div class="project-card" data-severity="medium">
-            <div class="project-icon">🔍</div>
-            <h3>SubHunter</h3>
-            <p>Async subdomain enumerator with multi-threaded DNS bruteforce, crt.sh passive enumeration, and CNAME takeover detection. 50+ concurrent threads.</p>
-            <div class="project-tags">
-                <span>Recon</span>
-                <span>DNS</span>
-                <span>Bug Bounty</span>
-            </div>
-            <div class="project-links">
-                <a href="https://github.com/redX000/SubHunter" target="_blank" class="btn-small"><i class="fab fa-github"></i> Source Code</a>
-            </div>
+            <p>Web vulnerability scanner. Detects XSS, SQL Injection, LFI, missing security headers, and SSL misconfigurations. Auto form crawling, zero dependencies.</p>
+            <div class="project-tags"><span>XSS</span><span>SQLi</span><span>LFI</span><span>Headers</span><span>SSL</span></div>
+            <div class="project-links"><a href="https://github.com/redX000/VulnScan" target="_blank" class="btn-small"><i class="fab fa-github"></i> DEPLOY</a></div>
         </div>
 
         <div class="project-card" data-severity="high">
+            <div class="severity-badge high">HIGH</div>
+            <div class="project-icon">🎣</div>
+            <h3>RedPhish</h3>
+            <p>Advanced phishing URL & email header analyzer. Homoglyph detection, brand impersonation, entropy scoring, SPF/DKIM/DMARC validation, and batch processing.</p>
+            <div class="project-tags"><span>Phishing</span><span>Email</span><span>DMARC</span><span>Detection</span></div>
+            <div class="project-links"><a href="https://github.com/redX000/RedPhish" target="_blank" class="btn-small"><i class="fab fa-github"></i> DEPLOY</a></div>
+        </div>
+
+        <div class="project-card" data-severity="high">
+            <div class="severity-badge high">HIGH</div>
             <div class="project-icon">🐙</div>
             <h3>HashKraken</h3>
-            <p>Multi-algorithm hash cracker supporting MD5, SHA-1/256/512, NTLM. Dictionary attacks with rule engine, brute force, and batch cracking capabilities.</p>
-            <div class="project-tags">
-                <span>Password Cracking</span>
-                <span>Hash Analysis</span>
-                <span>Python</span>
-            </div>
-            <div class="project-links">
-                <a href="https://github.com/redX000/HashKraken" target="_blank" class="btn-small"><i class="fab fa-github"></i> Source Code</a>
-            </div>
+            <p>Multi-algorithm hash cracker. MD5, SHA-1/256/512, NTLM support. Dictionary attacks with mutation rules, brute force engine, and batch cracking mode.</p>
+            <div class="project-tags"><span>Cracking</span><span>MD5</span><span>NTLM</span><span>Rules</span></div>
+            <div class="project-links"><a href="https://github.com/redX000/HashKraken" target="_blank" class="btn-small"><i class="fab fa-github"></i> DEPLOY</a></div>
         </div>
 
         <div class="project-card" data-severity="medium">
+            <div class="severity-badge medium">MEDIUM</div>
+            <div class="project-icon">🔍</div>
+            <h3>SubHunter</h3>
+            <p>Async subdomain enumerator. Multi-threaded DNS bruteforce, crt.sh passive recon, CNAME takeover detection. 50+ concurrent threads.</p>
+            <div class="project-tags"><span>Recon</span><span>DNS</span><span>CNAME</span><span>Bug Bounty</span></div>
+            <div class="project-links"><a href="https://github.com/redX000/SubHunter" target="_blank" class="btn-small"><i class="fab fa-github"></i> DEPLOY</a></div>
+        </div>
+
+        <div class="project-card" data-severity="medium">
+            <div class="severity-badge medium">MEDIUM</div>
             <div class="project-icon">👻</div>
             <h3>NetSpectre</h3>
-            <p>Network packet sniffer using raw sockets. Real-time capture with Ethernet/IPv4/TCP/UDP/ARP parsing, protocol filtering, and color-coded live display.</p>
-            <div class="project-tags">
-                <span>Network Security</span>
-                <span>Packet Analysis</span>
-                <span>Raw Sockets</span>
-            </div>
-            <div class="project-links">
-                <a href="https://github.com/redX000/NetSpectre" target="_blank" class="btn-small"><i class="fab fa-github"></i> Source Code</a>
-            </div>
+            <p>Raw socket packet sniffer & analyzer. Real-time capture, Ethernet/IPv4/TCP/UDP/ARP parsing, protocol filtering, TCP flag analysis, JSON export.</p>
+            <div class="project-tags"><span>Packets</span><span>Raw Sockets</span><span>Network</span></div>
+            <div class="project-links"><a href="https://github.com/redX000/NetSpectre" target="_blank" class="btn-small"><i class="fab fa-github"></i> DEPLOY</a></div>
         </div>
 
         <div class="project-card" data-severity="low">
+            <div class="severity-badge low">STEALTH</div>
             <div class="project-icon">🔐</div>
             <h3>CryptoStego</h3>
-            <p>Steganography toolkit — hide secret data inside images using LSB encoding with optional XOR encryption. Includes stego analysis and capacity calculator.</p>
-            <div class="project-tags">
-                <span>Steganography</span>
-                <span>Cryptography</span>
-                <span>Forensics</span>
-            </div>
-            <div class="project-links">
-                <a href="https://github.com/redX000/CryptoStego" target="_blank" class="btn-small"><i class="fab fa-github"></i> Source Code</a>
-            </div>
+            <p>Steganography toolkit. Hide data inside images using LSB encoding with XOR encryption. Stego analysis, capacity calculator, multi-format support.</p>
+            <div class="project-tags"><span>Stego</span><span>Crypto</span><span>Forensics</span><span>Covert</span></div>
+            <div class="project-links"><a href="https://github.com/redX000/CryptoStego" target="_blank" class="btn-small"><i class="fab fa-github"></i> DEPLOY</a></div>
         </div>
-
     </div>
 
-    <!-- REDX Platform -->
-    <div class="card project-highlight">
-        <div class="project-highlight-badge">FLAGSHIP</div>
+    <div class="flagship-card">
+        <div class="flagship-badge">🔴 FLAGSHIP OPERATION</div>
         <h3><span class="accent">REDX</span> — Cybersecurity Platform</h3>
-        <p>Founder and red team lead of an all-in-one cybersecurity platform focused on offensive security operations, threat simulation, and security research. Currently in active development as part of university dissertation.</p>
-        <div class="project-tags">
-            <span>Offensive Security</span>
-            <span>Threat Simulation</span>
-            <span>Leadership</span>
-            <span>Active Development</span>
-        </div>
+        <p>Founder and red team lead. An integrated cybersecurity platform for offensive security operations, threat simulation, automated reconnaissance, and security research. Multi-developer project — active development as university dissertation.</p>
+        <div class="project-tags"><span>Platform</span><span>Offensive Security</span><span>Threat Simulation</span><span>Leadership</span><span>Dissertation</span></div>
     </div>
 </section>
 
-<!-- EDUCATION -->
-<section id="education" class="animate">
-    <h2><i class="fas fa-graduation-cap"></i> Training & Education</h2>
+<!-- TRAINING -->
+<section id="training" class="animate">
+    <h2><i class="fas fa-skull-crossbones"></i> TRAINING & OPERATIONS</h2>
 
-    <div class="card">
+    <div class="edu-card">
+        <div class="edu-badge">ACTIVE</div>
         <h3>BSc Cybersecurity (Honours)</h3>
-        <p><strong>Solent University — Southampton, UK</strong></p>
-        <p><i class="fas fa-calendar"></i> 2023 – Present</p>
+        <p class="edu-meta"><i class="fas fa-building"></i> Solent University — Southampton, UK &nbsp;|&nbsp; <i class="fas fa-calendar"></i> 2023 – Present</p>
     </div>
 
-    <!-- MODULES -->
-    <div class="attack-chain">
-        <h3 class="chain-title"><i class="fas fa-link"></i> Attack Chain — Module Progression</h3>
+    <h3 class="chain-title"><i class="fas fa-link"></i> KILL CHAIN — MODULE PROGRESSION</h3>
+    <p class="section-note"><i class="fas fa-hand-pointer"></i> Click any module to view learning outcomes and operational impact</p>
 
-        <div class="chain-year">
-            <h4>Year 1 — Foundations</h4>
-            <div class="chain-modules">
-                <div class="module"><span class="module-num">01</span> Problem Solving Through Programming</div>
-                <div class="module"><span class="module-num">02</span> Introduction to Networks & Security</div>
-                <div class="module"><span class="module-num">03</span> Network Applications</div>
-                <div class="module"><span class="module-num">04</span> Databases</div>
-                <div class="module"><span class="module-num">05</span> Routing & Switching</div>
-                <div class="module"><span class="module-num">06</span> Security Essentials</div>
+    <div class="chain-year">
+        <h4><span class="year-badge">Y1</span> RECONNAISSANCE — Foundations</h4>
+        <div class="chain-modules">
+            <div class="module-card toggle-module">
+                <div class="module-header"><span class="module-num">01</span> Problem Solving Through Programming <i class="fas fa-chevron-down module-chevron"></i></div>
+                <div class="module-content"><p>Developed logical thinking, algorithmic reasoning, and structured problem-solving using Python. Built foundational automation skills for security scripting, exploit development, and tool creation.</p></div>
             </div>
-        </div>
-
-        <div class="chain-year">
-            <h4>Year 2 — Offensive & Defensive</h4>
-            <div class="chain-modules">
-                <div class="module"><span class="module-num">07</span> Ethical Hacking & Penetration Testing</div>
-                <div class="module"><span class="module-num">08</span> Threat Intelligence Analysis</div>
-                <div class="module"><span class="module-num">09</span> Network Systems Automation</div>
-                <div class="module"><span class="module-num">10</span> Network Implementation</div>
-                <div class="module"><span class="module-num">11</span> Research Methods Project</div>
+            <div class="module-card toggle-module">
+                <div class="module-header"><span class="module-num">02</span> Introduction to Networks & Security <i class="fas fa-chevron-down module-chevron"></i></div>
+                <div class="module-content"><p>Built foundational understanding of TCP/IP, OSI model, network protocols, and core security principles. Learned how data traverses networks — essential for understanding attack vectors and packet-level threats.</p></div>
             </div>
-        </div>
-
-        <div class="chain-year">
-            <h4>Year 3 — Advanced & Real-World</h4>
-            <div class="chain-modules">
-                <div class="module"><span class="module-num">12</span> CyberOps (Cisco)</div>
-                <div class="module"><span class="module-num">13</span> Cybercrime & Digital Forensics</div>
-                <div class="module"><span class="module-num">14</span> Cloud Computing & Virtualization</div>
-                <div class="module"><span class="module-num">15</span> Internet of Things (IoT)</div>
-                <div class="module highlight"><span class="module-num">16</span> Dissertation — REDX Platform</div>
-                <div class="module"><span class="module-num">17</span> Industrial Consulting Project</div>
+            <div class="module-card toggle-module">
+                <div class="module-header"><span class="module-num">03</span> Network Applications <i class="fas fa-chevron-down module-chevron"></i></div>
+                <div class="module-content"><p>Understood how operating systems and network services enable communication. Explored DNS, DHCP, HTTP, and FTP — services frequently targeted in real-world attacks and penetration tests.</p></div>
+            </div>
+            <div class="module-card toggle-module">
+                <div class="module-header"><span class="module-num">04</span> Databases <i class="fas fa-chevron-down module-chevron"></i></div>
+                <div class="module-content"><p>Designed relational databases, wrote complex SQL queries, and analysed data integrity. Critical foundation for understanding SQL injection attacks, data exfiltration, and database forensics.</p></div>
+            </div>
+            <div class="module-card toggle-module">
+                <div class="module-header"><span class="module-num">05</span> Routing & Switching <i class="fas fa-chevron-down module-chevron"></i></div>
+                <div class="module-content"><p>Configured enterprise routing and switching infrastructure. Gained hands-on experience with VLANs, ACLs, and routing protocols — knowledge exploited in network pivoting and lateral movement.</p></div>
+            </div>
+            <div class="module-card toggle-module">
+                <div class="module-header"><span class="module-num">06</span> Security Essentials <i class="fas fa-chevron-down module-chevron"></i></div>
+                <div class="module-content"><p>Learned cybersecurity fundamentals including CIA triad, risk management, access control, and defensive strategies. Built the baseline knowledge for both offensive and defensive operations.</p></div>
             </div>
         </div>
     </div>
-</section>
 
-<!-- CERTS -->
-<section class="animate">
-    <h2><i class="fas fa-certificate"></i> Certifications</h2>
+    <div class="chain-year">
+        <h4><span class="year-badge">Y2</span> WEAPONIZATION — Offensive & Defensive</h4>
+        <div class="chain-modules">
+            <div class="module-card toggle-module">
+                <div class="module-header"><span class="module-num">07</span> Ethical Hacking & Penetration Testing <i class="fas fa-chevron-down module-chevron"></i></div>
+                <div class="module-content"><p>Performed full penetration testing engagements: reconnaissance, vulnerability discovery, exploitation, privilege escalation, and professional report writing. Used Metasploit, Burp Suite, Nmap, and custom scripts against lab environments.</p></div>
+            </div>
+            <div class="module-card toggle-module">
+                <div class="module-header"><span class="module-num">08</span> Threat Intelligence Analysis <i class="fas fa-chevron-down module-chevron"></i></div>
+                <div class="module-content"><p>Analysed real-world threat actors, APT groups, and cybercriminal operations using MITRE ATT&CK, Diamond Model, and intelligence lifecycle frameworks. Produced actionable intelligence reports on cyber threats to national security.</p></div>
+            </div>
+            <div class="module-card toggle-module">
+                <div class="module-header"><span class="module-num">09</span> Network Systems Automation <i class="fas fa-chevron-down module-chevron"></i></div>
+                <div class="module-content"><p>Automated network configuration, monitoring, and management using scripting. Built automated security scanning pipelines and infrastructure-as-code deployments.</p></div>
+            </div>
+            <div class="module-card toggle-module">
+                <div class="module-header"><span class="module-num">10</span> Network Implementation <i class="fas fa-chevron-down module-chevron"></i></div>
+                <div class="module-content"><p>Designed, built, and tested secure network architectures aligned with business requirements. Implemented firewall rules, segmentation strategies, and secure communication channels.</p></div>
+            </div>
+            <div class="module-card toggle-module">
+                <div class="module-header"><span class="module-num">11</span> Research Methods Project <i class="fas fa-chevron-down module-chevron"></i></div>
+                <div class="module-content"><p>Developed academic research capabilities: literature review, critical analysis, methodology design, and professional security report writing — skills essential for threat intelligence documentation and consulting.</p></div>
+            </div>
+        </div>
+    </div>
+
+    <div class="chain-year">
+        <h4><span class="year-badge">Y3</span> EXPLOITATION — Advanced Operations</h4>
+        <div class="chain-modules">
+            <div class="module-card toggle-module">
+                <div class="module-header"><span class="module-num">12</span> CyberOps (Cisco) <i class="fas fa-chevron-down module-chevron"></i></div>
+                <div class="module-content"><p>Operated as a SOC analyst: detected, analysed, and responded to cyber threats using SIEM tools, packet analysis, and incident response procedures. Cisco CyberOps Associate certification aligned.</p></div>
+            </div>
+            <div class="module-card toggle-module">
+                <div class="module-header"><span class="module-num">13</span> Cybercrime & Digital Forensics <i class="fas fa-chevron-down module-chevron"></i></div>
+                <div class="module-content"><p>Investigated cybercrime techniques, digital evidence handling, chain of custody, forensic imaging, and legal frameworks. Reconstructed attack timelines and produced court-admissible forensic reports. Key module for law enforcement and counter-terrorism career paths.</p></div>
+            </div>
+            <div class="module-card toggle-module">
+                <div class="module-header"><span class="module-num">14</span> Cloud Computing & Virtualization <i class="fas fa-chevron-down module-chevron"></i></div>
+                <div class="module-content"><p>Evaluated cloud architectures (AWS, Azure), container security, and virtualization attack surfaces. Assessed misconfiguration risks, IAM exploitation, and cloud-native security controls.</p></div>
+            </div>
+            <div class="module-card toggle-module">
+                <div class="module-header"><span class="module-num">15</span> Internet of Things (IoT) <i class="fas fa-chevron-down module-chevron"></i></div>
+                <div class="module-content"><p>Analysed IoT attack surfaces, firmware vulnerabilities, protocol weaknesses, and physical security bypass techniques. Critical for understanding smart city infrastructure threats and counter-terrorism scenarios.</p></div>
+            </div>
+            <div class="module-card toggle-module highlight">
+                <div class="module-header"><span class="module-num">16</span> Dissertation — REDX Platform <i class="fas fa-chevron-down module-chevron"></i></div>
+                <div class="module-content"><p>Designed and co-developed the REDX cybersecurity platform — an integrated offensive security system for attack simulation, automated reconnaissance, vulnerability management, and threat reporting. Multi-developer collaboration with real-world application.</p></div>
+            </div>
+            <div class="module-card toggle-module">
+                <div class="module-header"><span class="module-num">17</span> Industrial Consulting Project <i class="fas fa-chevron-down module-chevron"></i></div>
+                <div class="module-content"><p>Delivered real-world cybersecurity consulting for an external organisation. Conducted risk assessments, security audits, and produced professional recommendations — replicating the work of a cybersecurity consultant in the field.</p></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- CERTIFICATIONS -->
+    <h3 class="chain-title"><i class="fas fa-certificate"></i> CLEARANCE & CERTIFICATIONS</h3>
     <div class="certs-grid">
-        <div class="cert-card">
-            <i class="fas fa-award"></i>
-            <h4>Cisco CyberOps Associate</h4>
-            <span class="cert-status complete">Completed</span>
-        </div>
-        <div class="cert-card">
-            <i class="fas fa-graduation-cap"></i>
-            <h4>Ethical Hacking & Pen Testing</h4>
-            <span class="cert-status complete">Academic</span>
-        </div>
-        <div class="cert-card">
-            <i class="fas fa-flag"></i>
-            <h4>TryHackMe — Red Team Path</h4>
-            <span class="cert-status progress">In Progress</span>
-        </div>
-        <div class="cert-card">
-            <i class="fas fa-cube"></i>
-            <h4>Hack The Box Labs</h4>
-            <span class="cert-status progress">Active</span>
-        </div>
+        <div class="cert-card"><i class="fas fa-shield-halved"></i><h4>Cisco CyberOps Associate</h4><span class="cert-status complete">CLEARED</span></div>
+        <div class="cert-card"><i class="fas fa-skull-crossbones"></i><h4>Ethical Hacking & Pen Testing</h4><span class="cert-status complete">CLEARED</span></div>
+        <div class="cert-card"><i class="fas fa-flag"></i><h4>TryHackMe — Red Team Path</h4><span class="cert-status progress">IN PROGRESS</span></div>
+        <div class="cert-card"><i class="fas fa-cube"></i><h4>Hack The Box Labs</h4><span class="cert-status progress">ACTIVE</span></div>
     </div>
 </section>
 
-<!-- REPORTS -->
-<section id="reports" class="animate">
-    <h2><i class="fas fa-file-alt"></i> Intel Reports</h2>
-    <p class="section-note"><i class="fas fa-lock"></i> Click to expand — classified technical write-ups</p>
+<!-- INTEL REPORTS -->
+<section id="intel" class="animate">
+    <h2><i class="fas fa-file-shield"></i> CLASSIFIED INTEL</h2>
+    <p class="section-note"><i class="fas fa-lock"></i> Technical write-ups and security assessments. Click to expand — PDF reports linked when available.</p>
 
-    <div class="card toggle">
-        <h3><i class="fas fa-chevron-right toggle-icon"></i> Penetration Testing Report — Web Application</h3>
+    <div class="intel-card toggle">
+        <div class="intel-classification">CONFIDENTIAL</div>
+        <h3><i class="fas fa-chevron-right toggle-icon"></i> Penetration Testing Report — Web Application Assessment</h3>
         <div class="content">
-            <p>Full penetration testing engagement covering reconnaissance, vulnerability discovery, exploitation, risk assessment, and remediation recommendations aligned with industry standards.</p>
-            <ul class="skills">
-                <li><i class="fas fa-search"></i> Recon</li>
-                <li><i class="fas fa-bug"></i> Vuln Analysis</li>
-                <li><i class="fas fa-bomb"></i> Exploitation</li>
-                <li><i class="fas fa-chart-line"></i> Risk Scoring</li>
-            </ul>
+            <p>Full-scope penetration testing engagement covering external and internal reconnaissance, automated & manual vulnerability discovery, exploitation and post-exploitation, risk scoring (CVSS), and detailed remediation recommendations aligned with OWASP and industry standards.</p>
+            <div class="project-tags">
+                <span>Recon</span><span>Exploitation</span><span>CVSS</span><span>OWASP</span><span>Remediation</span>
+            </div>
+            <div class="report-download">
+                <a href="assets/reports/pentest-report.pdf" target="_blank" class="btn-small"><i class="fas fa-file-pdf"></i> VIEW FULL REPORT (PDF)</a>
+                <span class="report-note"><i class="fas fa-info-circle"></i> Report will be available after assessment completion</span>
+            </div>
         </div>
     </div>
 
-    <div class="card toggle">
-        <h3><i class="fas fa-chevron-right toggle-icon"></i> Threat Intelligence Analysis — Real-World Threat Actors</h3>
+    <div class="intel-card toggle">
+        <div class="intel-classification">SECRET</div>
+        <h3><i class="fas fa-chevron-right toggle-icon"></i> Threat Intelligence Analysis — Real-World Threat Actors & APTs</h3>
         <div class="content">
-            <p>In-depth threat intelligence report analysing threat actors, attack vectors, TTPs, and strategic objectives using established intelligence frameworks.</p>
-            <ul class="skills">
-                <li><i class="fas fa-user-secret"></i> Threat Profiling</li>
-                <li><i class="fas fa-crosshairs"></i> MITRE ATT&CK</li>
-                <li><i class="fas fa-binoculars"></i> OSINT</li>
-                <li><i class="fas fa-exclamation-triangle"></i> Risk Assessment</li>
-            </ul>
+            <p>In-depth threat intelligence report profiling real-world threat actors and APT groups. Analysis of tactics, techniques, and procedures (TTPs), attack infrastructure, strategic objectives, and potential links to state-sponsored cyber operations. Produced using MITRE ATT&CK, Diamond Model, and Kill Chain frameworks.</p>
+            <div class="project-tags">
+                <span>APT Profiling</span><span>MITRE ATT&CK</span><span>OSINT</span><span>TTPs</span><span>Counter-Intelligence</span>
+            </div>
+            <div class="report-download">
+                <a href="assets/reports/threat-intel.pdf" target="_blank" class="btn-small"><i class="fas fa-file-pdf"></i> VIEW FULL REPORT (PDF)</a>
+                <span class="report-note"><i class="fas fa-info-circle"></i> Report will be available after assessment completion</span>
+            </div>
         </div>
     </div>
 
-    <div class="card toggle">
-        <h3><i class="fas fa-chevron-right toggle-icon"></i> Digital Forensics Case Study</h3>
+    <div class="intel-card toggle">
+        <div class="intel-classification">CONFIDENTIAL</div>
+        <h3><i class="fas fa-chevron-right toggle-icon"></i> Digital Forensics Investigation — Cybercrime Case Study</h3>
         <div class="content">
-            <p>Practical forensic investigation focusing on evidence acquisition, analysis, and interpretation from an adversarial and defensive perspective.</p>
-            <ul class="skills">
-                <li><i class="fas fa-fingerprint"></i> Evidence Handling</li>
-                <li><i class="fas fa-file-code"></i> Log Analysis</li>
-                <li><i class="fas fa-project-diagram"></i> Incident Reconstruction</li>
-            </ul>
+            <p>Hands-on forensic investigation covering evidence acquisition, disk imaging, file system analysis, timeline reconstruction, and chain of custody documentation. Examined from both adversarial and law enforcement perspectives — applicable to cybercrime prosecution and counter-terrorism evidence handling.</p>
+            <div class="project-tags">
+                <span>Evidence Handling</span><span>Disk Forensics</span><span>Timeline Analysis</span><span>Chain of Custody</span>
+            </div>
+            <div class="report-download">
+                <a href="assets/reports/digital-forensics.pdf" target="_blank" class="btn-small"><i class="fas fa-file-pdf"></i> VIEW FULL REPORT (PDF)</a>
+                <span class="report-note"><i class="fas fa-info-circle"></i> Report will be available after assessment completion</span>
+            </div>
         </div>
     </div>
 
-    <div class="card toggle">
-        <h3><i class="fas fa-chevron-right toggle-icon"></i> Industrial Consulting Cybersecurity Report</h3>
+    <div class="intel-card toggle">
+        <div class="intel-classification">RESTRICTED</div>
+        <h3><i class="fas fa-chevron-right toggle-icon"></i> Industrial Consulting — Security Assessment & Recommendations</h3>
         <div class="content">
-            <p>Real-world consulting project delivering security analysis, risk evaluation, and actionable recommendations for an external organisation.</p>
-            <ul class="skills">
-                <li><i class="fas fa-chart-pie"></i> Risk Analysis</li>
-                <li><i class="fas fa-sitemap"></i> Security Architecture</li>
-                <li><i class="fas fa-handshake"></i> Client Communication</li>
-            </ul>
+            <p>Real-world security consulting engagement for an external organisation. Delivered comprehensive risk analysis, vulnerability assessment, security architecture review, and prioritised remediation roadmap. Client-facing documentation and professional presentation.</p>
+            <div class="project-tags">
+                <span>Risk Analysis</span><span>Security Architecture</span><span>Client Consulting</span><span>Remediation</span>
+            </div>
+            <div class="report-download">
+                <a href="assets/reports/consulting-report.pdf" target="_blank" class="btn-small"><i class="fas fa-file-pdf"></i> VIEW FULL REPORT (PDF)</a>
+                <span class="report-note"><i class="fas fa-info-circle"></i> Report will be available after assessment completion</span>
+            </div>
         </div>
     </div>
 </section>
 
 <!-- LANGUAGES -->
 <section class="animate">
-    <h2><i class="fas fa-language"></i> Languages</h2>
+    <h2><i class="fas fa-language"></i> COMMS CAPABILITY</h2>
     <div class="lang-grid">
-        <div class="lang-card">
-            <span class="lang-flag">🇲🇦</span>
-            <h4>Arabic</h4>
-            <div class="lang-bar"><div class="lang-fill" style="width:100%"></div></div>
-            <span class="lang-level">Native</span>
-        </div>
-        <div class="lang-card">
-            <span class="lang-flag">🇬🇧</span>
-            <h4>English</h4>
-            <div class="lang-bar"><div class="lang-fill" style="width:95%"></div></div>
-            <span class="lang-level">Fluent</span>
-        </div>
-        <div class="lang-card">
-            <span class="lang-flag">🇫🇷</span>
-            <h4>French</h4>
-            <div class="lang-bar"><div class="lang-fill" style="width:80%"></div></div>
-            <span class="lang-level">Advanced</span>
-        </div>
+        <div class="lang-card"><span class="lang-flag">🇲🇦</span><h4>Arabic</h4><div class="lang-bar"><div class="lang-fill" data-width="100"></div></div><span class="lang-level">NATIVE</span></div>
+        <div class="lang-card"><span class="lang-flag">🇬🇧</span><h4>English</h4><div class="lang-bar"><div class="lang-fill" data-width="95"></div></div><span class="lang-level">FLUENT</span></div>
+        <div class="lang-card"><span class="lang-flag">🇫🇷</span><h4>French</h4><div class="lang-bar"><div class="lang-fill" data-width="80"></div></div><span class="lang-level">ADVANCED</span></div>
     </div>
 </section>
 
 <!-- CONTACT -->
-<section id="contact" class="animate">
-    <h2><i class="fas fa-satellite-dish"></i> Establish Comms</h2>
-    
-    <div class="contact-container">
-        <div class="contact-info">
-            <div class="contact-item">
-                <i class="fas fa-envelope"></i>
-                <div>
-                    <h4>Email</h4>
-                    <a href="mailto:yassineax10@gmail.com">yassineax10@gmail.com</a>
-                </div>
-            </div>
-            <div class="contact-item">
-                <i class="fas fa-phone"></i>
-                <div>
-                    <h4>Phone</h4>
-                    <a href="tel:+447442928375">+44 744 292 8375</a>
-                </div>
-            </div>
-            <div class="contact-item">
-                <i class="fab fa-linkedin"></i>
-                <div>
-                    <h4>LinkedIn</h4>
-                    <a href="https://www.linkedin.com/in/yassine-lasraoui158473299/" target="_blank">Connect with me</a>
-                </div>
-            </div>
-            <div class="contact-item">
-                <i class="fab fa-github"></i>
-                <div>
-                    <h4>GitHub</h4>
-                    <a href="https://github.com/redX000" target="_blank">View my code</a>
-                </div>
-            </div>
+<section id="comms" class="animate">
+    <h2><i class="fas fa-satellite-dish"></i> ESTABLISH COMMS</h2>
+    <p class="section-note"><i class="fas fa-shield-halved"></i> Secure channels for professional inquiries, consulting, and collaboration opportunities.</p>
+
+    <div class="contact-grid">
+        <div class="contact-card">
+            <i class="fas fa-envelope"></i>
+            <h4>ENCRYPTED MAIL</h4>
+            <a href="mailto:yassineax10@gmail.com">yassineax10@gmail.com</a>
+        </div>
+        <div class="contact-card">
+            <i class="fas fa-phone"></i>
+            <h4>DIRECT LINE</h4>
+            <a href="tel:+447442928375">+44 744 292 8375</a>
+        </div>
+        <div class="contact-card">
+            <i class="fab fa-linkedin"></i>
+            <h4>LINKEDIN</h4>
+            <a href="https://www.linkedin.com/in/yassine-lasraoui-158473299" target="_blank">Connect</a>
+        </div>
+        <div class="contact-card">
+            <i class="fab fa-github"></i>
+            <h4>GITHUB</h4>
+            <a href="https://github.com/redX000" target="_blank">redX000</a>
         </div>
     </div>
 </section>
 
 </main>
 
-<!-- BACK TO TOP -->
-<button id="back-to-top" class="back-to-top" title="Back to top">
-    <i class="fas fa-arrow-up"></i>
-</button>
+<button id="back-to-top" class="back-to-top" title="Back to top"><i class="fas fa-arrow-up"></i></button>
 
 <footer>
-    <p>© 2026 Yassine Lasraoui — <span class="accent">REDX</span> Security</p>
+    <div class="footer-logo"><span class="logo-bracket">[</span>RED<span class="accent">X</span><span class="logo-bracket">]</span></div>
+    <p>© 2026 Yassine Lasraoui — Counter-Threat Operations</p>
     <p class="footer-links">
         <a href="https://github.com/redX000" target="_blank"><i class="fab fa-github"></i></a>
-        <a href="https://www.linkedin.com/in/yassine-lasraoui158473299/" target="_blank"><i class="fab fa-linkedin"></i></a>
+        <a href="https://www.linkedin.com/in/yassine-lasraoui-158473299" target="_blank"><i class="fab fa-linkedin"></i></a>
         <a href="mailto:yassineax10@gmail.com"><i class="fas fa-envelope"></i></a>
     </p>
 </footer>
