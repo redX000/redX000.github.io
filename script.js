@@ -1,35 +1,94 @@
 /* =====================
-   TERMINAL BOOT SEQUENCE
+   PARTICLE BACKGROUND
+===================== */
+(function initParticles() {
+    const canvas = document.getElementById('particle-canvas');
+    if (!canvas) return;
+    const ctx = canvas.getContext('2d');
+    let particles = [];
+    const PARTICLE_COUNT = 60;
+
+    function resize() {
+        canvas.width = window.innerWidth;
+        canvas.height = window.innerHeight;
+    }
+
+    class Particle {
+        constructor() { this.reset(); }
+        reset() {
+            this.x = Math.random() * canvas.width;
+            this.y = Math.random() * canvas.height;
+            this.vx = (Math.random() - 0.5) * 0.4;
+            this.vy = (Math.random() - 0.5) * 0.4;
+            this.size = Math.random() * 2 + 0.5;
+            this.opacity = Math.random() * 0.4 + 0.1;
+        }
+        update() {
+            this.x += this.vx;
+            this.y += this.vy;
+            if (this.x < 0 || this.x > canvas.width) this.vx *= -1;
+            if (this.y < 0 || this.y > canvas.height) this.vy *= -1;
+        }
+        draw() {
+            ctx.beginPath();
+            ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+            ctx.fillStyle = `rgba(255, 0, 34, ${this.opacity})`;
+            ctx.fill();
+        }
+    }
+
+    function drawConnections() {
+        for (let i = 0; i < particles.length; i++) {
+            for (let j = i + 1; j < particles.length; j++) {
+                const dx = particles[i].x - particles[j].x;
+                const dy = particles[i].y - particles[j].y;
+                const dist = Math.sqrt(dx * dx + dy * dy);
+                if (dist < 150) {
+                    ctx.beginPath();
+                    ctx.moveTo(particles[i].x, particles[i].y);
+                    ctx.lineTo(particles[j].x, particles[j].y);
+                    ctx.strokeStyle = `rgba(255, 0, 34, ${0.06 * (1 - dist / 150)})`;
+                    ctx.lineWidth = 0.5;
+                    ctx.stroke();
+                }
+            }
+        }
+    }
+
+    function animate() {
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+        particles.forEach(p => { p.update(); p.draw(); });
+        drawConnections();
+        requestAnimationFrame(animate);
+    }
+
+    resize();
+    window.addEventListener('resize', resize);
+    for (let i = 0; i < PARTICLE_COUNT; i++) particles.push(new Particle());
+    animate();
+})();
+
+/* =====================
+   PAGE LOAD
 ===================== */
 document.body.style.opacity = "0";
-
 window.addEventListener("load", () => {
-  setTimeout(() => {
-    document.body.style.transition = "opacity 0.6s ease";
-    document.body.style.opacity = "1";
-  }, 1200);
+    setTimeout(() => {
+        document.body.style.transition = "opacity 0.6s ease";
+        document.body.style.opacity = "1";
+    }, 800);
 });
 
 /* =====================
-   NAVIGATION BAR SCROLL EFFECT
+   NAVBAR SCROLL
 ===================== */
 const navbar = document.getElementById('navbar');
-let lastScroll = 0;
-
 window.addEventListener('scroll', () => {
-    const currentScroll = window.pageYOffset;
-    
-    if (currentScroll > 100) {
-        navbar.classList.add('scrolled');
-    } else {
-        navbar.classList.remove('scrolled');
-    }
-    
-    lastScroll = currentScroll;
+    navbar.classList.toggle('scrolled', window.pageYOffset > 80);
 });
 
 /* =====================
-   MOBILE NAVIGATION TOGGLE
+   MOBILE NAV
 ===================== */
 const navToggle = document.getElementById('nav-toggle');
 const navMenu = document.querySelector('.nav-menu');
@@ -41,8 +100,7 @@ if (navToggle) {
         icon.classList.toggle('fa-bars');
         icon.classList.toggle('fa-times');
     });
-    
-    // Close menu when clicking on a link
+
     document.querySelectorAll('.nav-menu a').forEach(link => {
         link.addEventListener('click', () => {
             navMenu.classList.remove('active');
@@ -57,247 +115,232 @@ if (navToggle) {
    SCROLL REVEAL
 ===================== */
 const observer = new IntersectionObserver(
-  entries => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        entry.target.classList.add("visible");
-      }
-    });
-  },
-  { threshold: 0.15 }
+    entries => entries.forEach(e => { if (e.isIntersecting) e.target.classList.add("visible"); }),
+    { threshold: 0.1 }
 );
-
 document.querySelectorAll(".animate").forEach(el => observer.observe(el));
 
 /* =====================
-   TERMINAL TYPING INTRO
+   TYPED TEXT EFFECT
 ===================== */
-const title = document.querySelector(".hero h1");
-if (title) {
-  const text = title.innerText;
-  title.innerText = "";
-  let i = 0;
+(function initTyped() {
+    const el = document.getElementById('typed-text');
+    if (!el) return;
 
-  function typeEffect() {
-    if (i < text.length) {
-      title.innerText += text.charAt(i);
-      i++;
-      setTimeout(typeEffect, 70);
+    const strings = [
+        'Penetration Testing & Red Teaming',
+        'Building Custom Security Tools',
+        'OSINT & Threat Intelligence',
+        'Bug Bounty Hunter',
+        'Ethical Hacking & Exploitation',
+        'Network Security Analysis'
+    ];
+
+    let strIdx = 0, charIdx = 0, deleting = false;
+
+    function type() {
+        const current = strings[strIdx];
+
+        if (!deleting) {
+            el.textContent = current.substring(0, charIdx + 1);
+            charIdx++;
+            if (charIdx === current.length) {
+                setTimeout(() => { deleting = true; type(); }, 2000);
+                return;
+            }
+            setTimeout(type, 60);
+        } else {
+            el.textContent = current.substring(0, charIdx - 1);
+            charIdx--;
+            if (charIdx === 0) {
+                deleting = false;
+                strIdx = (strIdx + 1) % strings.length;
+                setTimeout(type, 400);
+                return;
+            }
+            setTimeout(type, 30);
+        }
     }
-  }
-  setTimeout(typeEffect, 400);
-}
+
+    setTimeout(type, 1500);
+})();
 
 /* =====================
-   EXPAND / COLLAPSE REPORTS (CLICK)
+   COUNTER ANIMATION
+===================== */
+(function initCounters() {
+    const counters = document.querySelectorAll('.stat-num');
+    const counterObserver = new IntersectionObserver(entries => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                const el = entry.target;
+                const target = parseInt(el.dataset.count);
+                let current = 0;
+                const step = Math.max(1, Math.ceil(target / 40));
+                const timer = setInterval(() => {
+                    current += step;
+                    if (current >= target) { current = target; clearInterval(timer); }
+                    el.textContent = current;
+                }, 50);
+                counterObserver.unobserve(el);
+            }
+        });
+    }, { threshold: 0.5 });
+
+    counters.forEach(c => counterObserver.observe(c));
+})();
+
+/* =====================
+   REPORTS TOGGLE
 ===================== */
 document.querySelectorAll(".card.toggle").forEach(card => {
-  const header = card.querySelector("h3");
-  if (header) {
-    header.addEventListener("click", () => {
-      // Close other open cards
-      document.querySelectorAll(".card.toggle").forEach(otherCard => {
-        if (otherCard !== card && otherCard.classList.contains('open')) {
-          otherCard.classList.remove('open');
-        }
-      });
-      
-      // Toggle current card
-      card.classList.toggle("open");
-    });
-  }
-});
-
-/* =====================
-   GLITCH EFFECT (SUBTLE)
-===================== */
-document.querySelectorAll(".glitch").forEach(el => {
-  el.addEventListener("mouseenter", () => {
-    el.classList.add("glitch-active");
-    setTimeout(() => el.classList.remove("glitch-active"), 300);
-  });
-});
-
-/* =====================
-   SEQUENTIAL MODULE SLIDE-IN
-===================== */
-const attackSection = document.querySelector('.attack-chain');
-
-if (attackSection) {
-    const attackObserver = new IntersectionObserver(
-        entries => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    attackSection.classList.add('attack-active');
-                    attackObserver.unobserve(attackSection);
-                }
+    const header = card.querySelector("h3");
+    if (header) {
+        header.addEventListener("click", () => {
+            document.querySelectorAll(".card.toggle").forEach(other => {
+                if (other !== card) other.classList.remove('open');
             });
-        },
-        { threshold: 0.2 }
-    );
-
-    attackObserver.observe(attackSection);
-}
+            card.classList.toggle("open");
+        });
+    }
+});
 
 /* =====================
-   TERMINAL BOOT SCRIPT
+   TERMINAL BOOT
 ===================== */
 document.addEventListener("DOMContentLoaded", () => {
     const terminal = document.getElementById("terminal");
     const terminalText = document.getElementById("terminal-text");
     const skipButton = document.getElementById("skip-terminal");
 
-    if (!terminal || !terminalText) {
-        console.error("Terminal elements not found");
-        return;
-    }
+    if (!terminal || !terminalText) return;
 
     const lines = [
-        "Initializing REDX Offensive Framework...",
-        "Loading threat modules........[OK]",
-        "Injecting payloads.............[OK]",
-        "Bypassing perimeter defenses...[OK]",
-        "Enumerating attack surface.....[OK]",
-        "Establishing C2 channel........[OK]",
+        "root@redx:~# ./boot.sh",
         "",
-        "User: yassine",
-        "Role: RED TEAM OPERATOR",
+        "[*] Initializing REDX Offensive Framework v2.0...",
+        "[+] Loading threat modules..............[OK]",
+        "[+] Configuring attack surface..........[OK]",
+        "[+] Bypassing perimeter defenses........[OK]",
+        "[+] Establishing encrypted C2 channel...[OK]",
+        "[+] Enumerating targets.................[OK]",
         "",
-        "ACCESS GRANTED",
+        "┌─────────────────────────────────────────┐",
+        "│  USER:   yassine.lasraoui               │",
+        "│  ROLE:   RED TEAM OPERATOR               │",
+        "│  LEVEL:  ████████████████████░ 95%       │",
+        "│  STATUS: ACCESS GRANTED                  │",
+        "└─────────────────────────────────────────┘",
         "",
-        "Launching portfolio interface..."
+        "[*] Launching portfolio interface..."
     ];
 
-    let line = 0;
-    let char = 0;
-    let skipRequested = false;
+    let line = 0, char = 0, skip = false;
 
     function skipTerminal() {
-        skipRequested = true;
+        skip = true;
         terminal.classList.add("fade-out");
         skipButton.classList.add("hidden");
         setTimeout(() => terminal.remove(), 800);
     }
 
-    function type() {
-        if (skipRequested) return;
-        
+    function typeLines() {
+        if (skip) return;
         if (line >= lines.length) {
             setTimeout(() => {
                 terminal.classList.add("fade-out");
                 skipButton.classList.add("hidden");
-                setTimeout(() => terminal.remove(), 1500);
-            }, 800);
+                setTimeout(() => terminal.remove(), 1000);
+            }, 600);
             return;
         }
 
         if (char < lines[line].length) {
             terminalText.textContent += lines[line][char];
             char++;
-            setTimeout(type, 30);
+            setTimeout(typeLines, lines[line].startsWith("[") ? 18 : 12);
         } else {
             terminalText.textContent += "\n";
-
-            if (lines[line] === "ACCESS GRANTED") {
-                terminalText.classList.add("glitch");
-                setTimeout(() => {
-                    terminalText.classList.remove("glitch");
-                }, 350);
-            }
-
             line++;
             char = 0;
-            setTimeout(type, 250);
+            setTimeout(typeLines, lines[line - 1] === "" ? 100 : 150);
         }
     }
 
-    setTimeout(type, 500);
-
-    // Skip button
-    if (skipButton) {
-        skipButton.addEventListener("click", skipTerminal);
-    }
-
-    // Click anywhere to skip
+    setTimeout(typeLines, 300);
+    if (skipButton) skipButton.addEventListener("click", skipTerminal);
     terminal.addEventListener("click", skipTerminal);
 });
 
 /* =====================
-   BACK TO TOP BUTTON
+   BACK TO TOP
 ===================== */
-const backToTopButton = document.getElementById('back-to-top');
-
-if (backToTopButton) {
+const backToTop = document.getElementById('back-to-top');
+if (backToTop) {
     window.addEventListener('scroll', () => {
-        if (window.pageYOffset > 300) {
-            backToTopButton.classList.add('visible');
-        } else {
-            backToTopButton.classList.remove('visible');
-        }
+        backToTop.classList.toggle('visible', window.pageYOffset > 300);
     });
-
-    backToTopButton.addEventListener('click', () => {
-        window.scrollTo({
-            top: 0,
-            behavior: 'smooth'
-        });
+    backToTop.addEventListener('click', () => {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
     });
 }
 
 /* =====================
-   SMOOTH SCROLL FOR ANCHOR LINKS
+   SMOOTH SCROLL
 ===================== */
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     anchor.addEventListener('click', function (e) {
         const href = this.getAttribute('href');
-        
-        // Don't prevent default for just "#"
         if (href === '#') return;
-        
         e.preventDefault();
-        
         const target = document.querySelector(href);
         if (target) {
-            const offsetTop = target.offsetTop - 80; // Account for fixed navbar
-            
-            window.scrollTo({
-                top: offsetTop,
-                behavior: 'smooth'
+            window.scrollTo({ top: target.offsetTop - 80, behavior: 'smooth' });
+        }
+    });
+});
+
+/* =====================
+   ACTIVE NAV HIGHLIGHTING
+===================== */
+const sections = document.querySelectorAll('section[id]');
+const navLinks = document.querySelectorAll('.nav-menu a[href^="#"]');
+
+window.addEventListener('scroll', () => {
+    let scrollY = window.pageYOffset;
+    sections.forEach(section => {
+        const top = section.offsetTop - 120;
+        const height = section.offsetHeight;
+        const id = section.getAttribute('id');
+        if (scrollY >= top && scrollY < top + height) {
+            navLinks.forEach(link => {
+                link.classList.toggle('active', link.getAttribute('href') === `#${id}`);
             });
         }
     });
 });
 
 /* =====================
-   ACTIVE NAV LINK HIGHLIGHTING
+   LANGUAGE BAR ANIMATION
 ===================== */
-const sections = document.querySelectorAll('section[id]');
-const navLinks = document.querySelectorAll('.nav-menu a[href^="#"]');
-
-function highlightNavLink() {
-    let scrollY = window.pageYOffset;
-    
-    sections.forEach(section => {
-        const sectionHeight = section.offsetHeight;
-        const sectionTop = section.offsetTop - 100;
-        const sectionId = section.getAttribute('id');
-        
-        if (scrollY > sectionTop && scrollY <= sectionTop + sectionHeight) {
-            navLinks.forEach(link => {
-                link.classList.remove('active');
-                if (link.getAttribute('href') === `#${sectionId}`) {
-                    link.classList.add('active');
-                }
+const langObserver = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            entry.target.querySelectorAll('.lang-fill').forEach(bar => {
+                bar.style.width = bar.style.width; // trigger animation
             });
         }
     });
-}
+}, { threshold: 0.3 });
 
-window.addEventListener('scroll', highlightNavLink);
+document.querySelectorAll('.lang-grid').forEach(el => langObserver.observe(el));
 
 /* =====================
    CONSOLE EASTER EGG
 ===================== */
-console.log('%c🔴 REDX Security Framework', 'color: #ff0022; font-size: 20px; font-weight: bold;');
-console.log('%cRed Team Portfolio - Yassine Lasraoui', 'color: #b5b5b5; font-size: 14px;');
-console.log('%cInterested in cybersecurity? Let\'s connect!', 'color: #ff0022; font-size: 12px;');
+console.log('%c🔴 REDX Security Framework', 'color: #ff0022; font-size: 24px; font-weight: bold;');
+console.log('%c╔══════════════════════════════════════╗', 'color: #ff0022;');
+console.log('%c║  Red Team Portfolio — Yassine Lasraoui  ║', 'color: #ff0022;');
+console.log('%c║  github.com/redX000                     ║', 'color: #666;');
+console.log('%c╚══════════════════════════════════════╝', 'color: #ff0022;');
+console.log('%cInterested in cybersecurity? Let\'s connect!', 'color: #b5b5b5;');
