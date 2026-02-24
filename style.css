@@ -1383,3 +1383,229 @@ footer p { color: var(--muted); font-size: 0.75rem; letter-spacing: 1px; }
     .modal-photo { min-height: 200px; }
     .intro-logo { font-size: 3rem; }
 }
+
+/* =====================
+   HERO BACKGROUND IMAGE
+===================== */
+.hero-bg-image {
+    position: fixed;
+    inset: 0;
+    background: url('assets/img/network-bg.jpg') center center / cover no-repeat;
+    opacity: 0.12;
+    z-index: 0;
+    pointer-events: none;
+}
+
+/* =====================
+   CINEMATIC INTRO — FINGERPRINT SCANNER
+===================== */
+.intro-fingerprint {
+    position: relative;
+    width: 180px;
+    height: 260px;
+    margin: 0 auto 2rem;
+    overflow: hidden;
+    opacity: 0;
+    animation: fp-appear 0.8s 0.3s ease forwards;
+}
+
+@keyframes fp-appear {
+    0% { opacity: 0; transform: scale(0.8); }
+    100% { opacity: 1; transform: scale(1); }
+}
+
+.intro-fingerprint img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    filter: drop-shadow(0 0 30px rgba(255,0,34,0.5));
+}
+
+.scan-line-anim {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background: linear-gradient(to right, transparent, var(--red), transparent);
+    box-shadow: 0 0 15px var(--red), 0 0 40px rgba(255,0,34,0.3);
+    animation: scan-sweep 1.8s ease-in-out infinite;
+}
+
+@keyframes scan-sweep {
+    0% { top: 0; }
+    50% { top: 100%; }
+    100% { top: 0; }
+}
+
+.intro-scan-text {
+    font-size: 0.6rem;
+    letter-spacing: 5px;
+    color: var(--green);
+    margin-bottom: 1.5rem;
+    opacity: 0;
+    animation: scan-text-in 0.5s 1s ease forwards;
+}
+
+@keyframes scan-text-in {
+    0% { opacity: 0; }
+    100% { opacity: 1; }
+}
+
+.intro-logo {
+    opacity: 0;
+    animation: logo-in 0.8s 1.8s ease forwards;
+}
+
+@keyframes logo-in {
+    0% { opacity: 0; transform: translateY(10px); filter: blur(5px); }
+    100% { opacity: 1; transform: translateY(0); filter: blur(0); }
+}
+
+.intro-tagline {
+    opacity: 0;
+    animation: tag-in 0.6s 2.2s ease forwards;
+}
+
+@keyframes tag-in {
+    0% { opacity: 0; }
+    100% { opacity: 1; }
+}
+
+.intro-bar {
+    opacity: 0;
+    animation: bar-in 0.3s 2.4s ease forwards;
+}
+
+@keyframes bar-in {
+    0% { opacity: 0; }
+    100% { opacity: 1; }
+}
+
+.intro-bar-fill {
+    animation: bar-load 1.5s 2.5s ease forwards;
+}
+
+.intro-status {
+    opacity: 0;
+    color: var(--green);
+    animation: status-in 0.5s 3.8s ease forwards;
+}
+
+@keyframes status-in {
+    0% { opacity: 0; }
+    100% { opacity: 1; }
+}
+
+/* Override old intro-status blink - make it solid green when verified */
+#cinematic-intro .intro-status {
+    animation: status-in 0.5s 3.8s ease forwards;
+}
+
+/* =====================
+   PROFILE SECTION — HACKER AVATAR ACCENT
+===================== */
+.profile-grid::before {
+    content: '';
+    display: none;
+}
+
+/* =====================
+   MODAL PHOTO — HACKER AVATAR STYLING
+===================== */
+.modal-photo {
+    background: #000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 350px;
+    overflow: hidden;
+    position: relative;
+}
+
+.modal-photo::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to top, rgba(10,10,10,0.8) 0%, transparent 40%);
+    pointer-events: none;
+}
+
+.modal-photo img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    filter: brightness(0.9) contrast(1.1);
+}
+
+/* =====================
+   RESPONSIVE INTRO FINGERPRINT
+===================== */
+@media (max-width: 768px) {
+    .intro-fingerprint {
+        width: 130px;
+        height: 190px;
+    }
+    .intro-logo { font-size: 3rem !important; }
+}
+
+/* =====================
+   PROFILE AVATAR CARD
+===================== */
+.profile-right {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.profile-avatar {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 1;
+    max-width: 320px;
+    margin: 0 auto;
+    overflow: hidden;
+    border: 1px solid var(--red-border);
+}
+
+.profile-avatar img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    filter: brightness(0.85) contrast(1.1);
+    transition: all 0.5s ease;
+}
+
+.profile-avatar:hover img {
+    filter: brightness(1) contrast(1.15);
+    transform: scale(1.03);
+}
+
+.avatar-overlay {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding: 12px;
+    background: linear-gradient(to top, rgba(0,0,0,0.9) 0%, transparent 100%);
+    display: flex;
+    justify-content: center;
+}
+
+.avatar-label {
+    font-size: 0.65rem;
+    letter-spacing: 4px;
+    color: var(--red);
+    font-weight: 700;
+    text-shadow: 0 0 10px var(--red-glow);
+}
+
+/* =====================
+   MODAL PHOTO — REAL PROFILE PIC
+===================== */
+.modal-photo img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center top;
+}

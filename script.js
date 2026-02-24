@@ -75,11 +75,11 @@
     const intro = document.getElementById('cinematic-intro');
     if (!intro) return;
 
-    // Auto-dismiss after loading bar completes (2.8s)
+    // Auto-dismiss after fingerprint scan + loading bar completes
     setTimeout(() => {
         intro.classList.add('fade-out');
         setTimeout(() => intro.remove(), 1000);
-    }, 2800);
+    }, 4800);
 
     // Click to skip
     intro.addEventListener('click', () => {
@@ -172,7 +172,7 @@ document.querySelectorAll(".animate").forEach(el => observer.observe(el));
             setTimeout(type, 20);
         }
     }
-    setTimeout(type, 3500); // delay until after intro
+    setTimeout(type, 5500); // delay until after intro
 })();
 
 /* =====================

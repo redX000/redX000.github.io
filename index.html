@@ -25,17 +25,23 @@
 <div id="cinematic-intro">
     <div class="intro-bg"></div>
     <div class="intro-glitch-lines"></div>
+    <div class="intro-fingerprint">
+        <img src="assets/img/fingerprint.jpg" alt="">
+        <div class="scan-line-anim"></div>
+    </div>
     <div class="intro-content">
+        <div class="intro-scan-text">SCANNING BIOMETRICS...</div>
         <div class="intro-logo">
             <span class="intro-bracket">[</span>RED<span class="intro-accent">X</span><span class="intro-bracket">]</span>
         </div>
         <div class="intro-tagline">COUNTER-THREAT OPERATIONS</div>
         <div class="intro-bar"><div class="intro-bar-fill"></div></div>
-        <div class="intro-status">INITIALIZING OPERATOR INTERFACE...</div>
+        <div class="intro-status">IDENTITY VERIFIED — ACCESS GRANTED</div>
     </div>
 </div>
 
 <!-- ========== BACKGROUND EFFECTS ========== -->
+<div class="hero-bg-image"></div>
 <canvas id="particle-canvas"></canvas>
 <div class="scanline"></div>
 
@@ -45,27 +51,25 @@
         <button class="modal-close" id="modal-close"><i class="fas fa-times"></i></button>
         <div class="modal-inner">
             <div class="modal-photo">
-                <!-- REPLACE src with your actual photo -->
-                <img src="assets/profile.jpg" alt="Yassine Lasraoui" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
-                <div class="photo-placeholder"><i class="fas fa-user-secret"></i></div>
+                <img src="assets/img/profile.jpg" alt="Yassine Lasraoui">
             </div>
             <div class="modal-bio">
                 <h2>Yassine Lasraoui</h2>
                 <div class="modal-role">RED TEAM OPERATOR <span class="accent">//</span> COUNTER-THREAT SPECIALIST</div>
                 <div class="modal-divider"></div>
-                <!-- REPLACE this paragraph with your actual resume/description -->
-                <p class="modal-desc" id="modal-description">
-                    Red team operator and cybersecurity specialist focused on the intersection of cybercrime investigation and counter-terrorism operations. Currently pursuing a BSc in Cybersecurity at Solent University, Southampton.
+                <p class="modal-desc">
+                    Cybersecurity student at Solent University in Southampton with a strong passion for cybercrime investigation, counter-terrorism, and intelligence analysis. Driven by a long-standing interest in detective work, I am focused on developing the technical, analytical, and investigative skills needed to identify threats, uncover digital evidence, and support security operations.
                 </p>
                 <p class="modal-desc">
-                    My goal is to work at the forefront of national security — leveraging offensive security skills, digital forensics, and threat intelligence to detect, investigate, and neutralize cyber threats before they cause real-world harm.
+                    Alongside my studies, I maintain an active lifestyle through parkour and mixed martial arts, which strengthen my discipline, resilience, and problem-solving mindset. I am motivated to pursue a career where I can contribute to protecting organisations and society from evolving cyber threats through investigation, analysis, and proactive defense.
                 </p>
                 <div class="modal-tags">
-                    <span>Penetration Testing</span>
-                    <span>Cybercrime</span>
+                    <span>Cybercrime Investigation</span>
                     <span>Counter-Terrorism</span>
-                    <span>OSINT</span>
+                    <span>Intelligence Analysis</span>
                     <span>Digital Forensics</span>
+                    <span>OSINT</span>
+                    <span>Penetration Testing</span>
                 </div>
                 <div class="modal-links">
                     <a href="https://www.linkedin.com/in/yassine-lasraoui-158473299" target="_blank"><i class="fab fa-linkedin"></i></a>
@@ -145,27 +149,30 @@
             <p>Founder of the <strong class="accent">REDX</strong> cybersecurity initiative — building next-generation offensive security solutions.</p>
             <button class="btn-small about-trigger" id="about-trigger-2"><i class="fas fa-id-card"></i> VIEW FULL DOSSIER</button>
         </div>
-        <div class="profile-terminal">
-            <div class="terminal-header">
-                <span class="dot red"></span><span class="dot yellow"></span><span class="dot green"></span>
-                <span class="terminal-title">operator_profile.sh</span>
+        <div class="profile-right">
+            <div class="profile-avatar">
+                <img src="assets/img/hacker-avatar.jpg" alt="REDX">
+                <div class="avatar-overlay">
+                    <span class="avatar-label">REDX-000</span>
+                </div>
             </div>
-            <pre class="terminal-body"><span class="t-green">┌──(redx㉿kali)</span>-<span class="t-blue">[~/ops]</span>
+            <div class="profile-terminal">
+                <div class="terminal-header">
+                    <span class="dot red"></span><span class="dot yellow"></span><span class="dot green"></span>
+                    <span class="terminal-title">operator_profile.sh</span>
+                </div>
+                <pre class="terminal-body"><span class="t-green">┌──(redx㉿kali)</span>-<span class="t-blue">[~/ops]</span>
 <span class="t-green">└─$</span> cat /etc/redx/operator.conf
 
-<span class="t-red">╔═══════════════════════════════════════╗
-║  OPERATOR DOSSIER — CLASSIFIED        ║
-╠═══════════════════════════════════════╣
-║  Name:     Yassine Lasraoui           ║
-║  Callsign: REDX-000                   ║
-║  Role:     Red Team Lead              ║
-║  Sector:   Cybercrime / Counter-CT    ║
-║  Stack:    Python │ Bash │ SQL │ C    ║
-║  Focus:    OffSec │ OSINT │ Forensics ║
-║  Threat:   APT-Grade                  ║
-║  Status:   ACTIVE 🔴                  ║
-╚═══════════════════════════════════════╝</span>
+<span class="t-red">  Name:     Yassine Lasraoui
+  Callsign: REDX-000
+  Role:     Red Team Lead
+  Sector:   Cybercrime / Counter-CT
+  Stack:    Python │ Bash │ SQL
+  Focus:    OffSec │ OSINT │ Forensics
+  Status:   ACTIVE 🔴</span>
 </pre>
+            </div>
         </div>
     </div>
 </section>
