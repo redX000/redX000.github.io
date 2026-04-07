@@ -246,16 +246,18 @@ document.querySelectorAll('.intel-card').forEach(card => {
 (function initModal() {
     const modal = document.getElementById('about-modal');
     const closeBtn = document.getElementById('modal-close');
-    const triggers = document.querySelectorAll('.about-trigger');
 
     if (!modal) return;
 
-    triggers.forEach(btn => {
-        btn.addEventListener('click', (e) => {
+    // Use event delegation to handle all .about-trigger buttons
+    document.addEventListener('click', (e) => {
+        const trigger = e.target.closest('.about-trigger');
+        if (trigger) {
+            console.log('Modal trigger clicked:', trigger.id || 'no-id');
             e.preventDefault();
             modal.classList.add('active');
             document.body.style.overflow = 'hidden';
-        });
+        }
     });
 
     function closeModal() {
