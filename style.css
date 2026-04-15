@@ -373,6 +373,7 @@ body > *:not(#matrix-canvas):not(.vignette):not(.scanline):not(.grid-overlay) {
     display: flex;
     align-items: center;
     justify-content: center;
+    padding: 20px;
     opacity: 0;
     visibility: hidden;
     pointer-events: none;
@@ -391,8 +392,8 @@ body > *:not(#matrix-canvas):not(.vignette):not(.scanline):not(.grid-overlay) {
     border: 1px solid rgba(255, 0, 34, 0.18);
     box-shadow: 0 0 120px rgba(255, 0, 34, 0.14);
     border-radius: 24px;
-    max-width: 980px;
-    width: min(100%, 960px);
+    max-width: 900px;
+    width: min(100%, 900px);
     max-height: 90vh;
     overflow: hidden;
     transform: translateY(30px) scale(0.96);
@@ -411,6 +412,7 @@ body > *:not(#matrix-canvas):not(.vignette):not(.scanline):not(.grid-overlay) {
     gap: 2rem;
     padding: 2.5rem;
     overflow-y: auto;
+    max-height: 100%;
 }
 
 .modal-close {
@@ -435,19 +437,13 @@ body > *:not(#matrix-canvas):not(.vignette):not(.scanline):not(.grid-overlay) {
     transform: translateY(-1px);
 }
 
-.modal-inner {
-    display: grid;
-    grid-template-columns: 320px 1fr;
-    gap: 2rem;
-    padding: 2.5rem;
-}
-
 .modal-photo {
     background: linear-gradient(180deg, rgba(255, 0, 34, 0.12), rgba(0, 0, 0, 0.85));
     border: 1px solid rgba(255, 0, 34, 0.18);
     border-radius: 22px;
     overflow: hidden;
-    min-height: 440px;
+    width: 320px;
+    height: 440px;
     display: grid;
     place-items: center;
 }
@@ -458,6 +454,7 @@ body > *:not(#matrix-canvas):not(.vignette):not(.scanline):not(.grid-overlay) {
     object-fit: cover;
     display: block;
 }
+
 
 .modal-bio h2 {
     margin: 0 0 0.65rem;
