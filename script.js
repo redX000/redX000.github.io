@@ -138,6 +138,42 @@ const observer = new IntersectionObserver(
 document.querySelectorAll(".animate").forEach(el => observer.observe(el));
 
 /* =====================
+   ABOUT MODAL
+===================== */
+(function initAboutModal() {
+    const modal = document.getElementById('about-modal');
+    const openButtons = document.querySelectorAll('.about-trigger');
+    const closeButton = document.getElementById('modal-close');
+
+    if (!modal || !openButtons.length || !closeButton) return;
+
+    const openModal = () => {
+        modal.classList.add('active');
+        modal.setAttribute('aria-hidden', 'false');
+        document.body.style.overflow = 'hidden';
+        closeButton.focus();
+    };
+
+    const closeModal = () => {
+        modal.classList.remove('active');
+        modal.setAttribute('aria-hidden', 'true');
+        document.body.style.overflow = '';
+    };
+
+    openButtons.forEach(button => button.addEventListener('click', openModal));
+    closeButton.addEventListener('click', closeModal);
+    modal.addEventListener('click', event => {
+        if (event.target === modal) closeModal();
+    });
+
+    window.addEventListener('keydown', event => {
+        if (event.key === 'Escape' && modal.classList.contains('active')) {
+            closeModal();
+        }
+    });
+})();
+
+/* =====================
    TYPED TEXT
 ===================== */
 (function initTyped() {

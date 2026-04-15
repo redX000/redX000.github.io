@@ -46,24 +46,26 @@
 <div class="scanline"></div>
 
 <!-- ========== ABOUT ME MODAL ========== -->
-<div id="about-modal" class="modal-overlay">
-    <div class="modal-card">
-        <button class="modal-close" id="modal-close"><i class="fas fa-times"></i></button>
+<div id="about-modal" class="modal-overlay" aria-hidden="true">
+    <div class="modal-card" role="dialog" aria-modal="true" aria-labelledby="about-modal-title" aria-describedby="about-modal-desc">
+        <button class="modal-close" id="modal-close" aria-label="Close biography dialog"><i class="fas fa-times"></i></button>
         <div class="modal-inner">
             <div class="modal-photo">
                 <img src="assets/img/profile.jpg" alt="Yassine Lasraoui"
                      onerror="this.style.display='none';this.parentElement.querySelector('.photo-placeholder').style.display='flex'">
             </div>
             <div class="modal-bio">
-                <h2>Yassine Lasraoui</h2>
+                <h2 id="about-modal-title">Yassine Lasraoui</h2>
                 <div class="modal-role">RED TEAM OPERATOR <span class="accent">//</span> COUNTER-THREAT SPECIALIST</div>
                 <div class="modal-divider"></div>
-                <p class="modal-desc">
-                    Cybersecurity student at Solent University in Southampton with a strong passion for cybercrime investigation, counter-terrorism, and intelligence analysis. Driven by a long-standing interest in detective work, I am focused on developing the technical, analytical, and investigative skills needed to identify threats, uncover digital evidence, and support security operations.
-                </p>
-                <p class="modal-desc">
-                    Alongside my studies, I maintain an active lifestyle through parkour and mixed martial arts, which strengthen my discipline, resilience, and problem-solving mindset. I am motivated to pursue a career where I can contribute to protecting organisations and society from evolving cyber threats through investigation, analysis, and proactive defense.
-                </p>
+                <div class="modal-desc-wrap" id="about-modal-desc">
+                    <p class="modal-desc">
+                        Cybersecurity student at Solent University in Southampton with a strong passion for cybercrime investigation, counter-terrorism, and intelligence analysis. Driven by a long-standing interest in detective work, I am focused on developing the technical, analytical, and investigative skills needed to identify threats, uncover digital evidence, and support security operations.
+                    </p>
+                    <p class="modal-desc">
+                        Alongside my studies, I maintain an active lifestyle through parkour and mixed martial arts, which strengthen my discipline, resilience, and problem-solving mindset. I am motivated to pursue a career where I can contribute to protecting organisations and society from evolving cyber threats through investigation, analysis, and proactive defense.
+                    </p>
+                </div>
                 <div class="modal-tags">
                     <span>Cybercrime Investigation</span>
                     <span>Counter-Terrorism</span>
