@@ -393,6 +393,7 @@ body > *:not(#matrix-canvas):not(.vignette):not(.scanline):not(.grid-overlay) {
     border-radius: 24px;
     max-width: 980px;
     width: min(100%, 960px);
+    max-height: 90vh;
     overflow: hidden;
     transform: translateY(30px) scale(0.96);
     opacity: 0;
@@ -402,6 +403,14 @@ body > *:not(#matrix-canvas):not(.vignette):not(.scanline):not(.grid-overlay) {
 .modal-overlay.active .modal-card {
     transform: translateY(0) scale(1);
     opacity: 1;
+}
+
+.modal-inner {
+    display: grid;
+    grid-template-columns: 320px 1fr;
+    gap: 2rem;
+    padding: 2.5rem;
+    overflow-y: auto;
 }
 
 .modal-close {
