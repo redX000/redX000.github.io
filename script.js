@@ -138,42 +138,6 @@ const observer = new IntersectionObserver(
 document.querySelectorAll(".animate").forEach(el => observer.observe(el));
 
 /* =====================
-   ABOUT MODAL
-===================== */
-(function initAboutModal() {
-    const modal = document.getElementById('about-modal');
-    const openButtons = document.querySelectorAll('.about-trigger');
-    const closeButton = document.getElementById('modal-close');
-
-    if (!modal || !openButtons.length || !closeButton) return;
-
-    const openModal = () => {
-        modal.classList.add('active');
-        modal.setAttribute('aria-hidden', 'false');
-        document.body.style.overflow = 'hidden';
-        closeButton.focus();
-    };
-
-    const closeModal = () => {
-        modal.classList.remove('active');
-        modal.setAttribute('aria-hidden', 'true');
-        document.body.style.overflow = '';
-    };
-
-    openButtons.forEach(button => button.addEventListener('click', openModal));
-    closeButton.addEventListener('click', closeModal);
-    modal.addEventListener('click', event => {
-        if (event.target === modal) closeModal();
-    });
-
-    window.addEventListener('keydown', event => {
-        if (event.key === 'Escape' && modal.classList.contains('active')) {
-            closeModal();
-        }
-    });
-})();
-
-/* =====================
    TYPED TEXT
 ===================== */
 (function initTyped() {
@@ -285,21 +249,26 @@ document.querySelectorAll('.intel-card').forEach(card => {
 
     if (!modal) return;
 
-    // Use event delegation to handle all .about-trigger buttons
-    document.addEventListener('click', (e) => {
-        const trigger = e.target.closest('.about-trigger');
-        if (trigger) {
-            console.log('Modal trigger clicked:', trigger.id || 'no-id');
-            e.preventDefault();
-            modal.classList.add('active');
-            document.body.style.overflow = 'hidden';
-        }
-    });
+    function openModal() {
+        modal.classList.add('active');
+        modal.setAttribute('aria-hidden', 'false');
+        document.body.style.overflow = 'hidden';
+        if (closeBtn) closeBtn.focus();
+    }
 
     function closeModal() {
         modal.classList.remove('active');
+        modal.setAttribute('aria-hidden', 'true');
         document.body.style.overflow = '';
     }
+
+    document.addEventListener('click', (e) => {
+        const trigger = e.target.closest('.about-trigger');
+        if (trigger) {
+            e.preventDefault();
+            openModal();
+        }
+    });
 
     if (closeBtn) closeBtn.addEventListener('click', closeModal);
 
