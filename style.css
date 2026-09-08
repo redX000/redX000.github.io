@@ -1617,3 +1617,66 @@ footer p { color: var(--muted); font-size: 0.75rem; letter-spacing: 1px; }
     object-fit: cover;
     object-position: center top;
 }
+
+/* =====================
+   ABOUT ME MODAL — SCROLL FIX
+   Makes the overlay itself scrollable so the biography can never get
+   trapped/clipped in the centre of the screen, and keeps the inner
+   content column scrolling on its own where there's room for it.
+===================== */
+.modal-overlay {
+    align-items: flex-start;
+    justify-content: center;
+    overflow-y: auto;
+    overscroll-behavior: contain;
+    -webkit-overflow-scrolling: touch;
+    padding: 4vh 1rem;
+}
+
+.modal-card {
+    margin: auto;
+    max-height: calc(100vh - 8vh);
+}
+
+.modal-content {
+    flex: 1 1 0;
+    min-width: 0;
+    min-height: 0;
+    overflow-y: auto;
+    overscroll-behavior: contain;
+}
+
+@media (max-width: 768px) {
+    /* On phones the card stacks vertically and can be taller than the
+       viewport — let the overlay do the scrolling instead of clipping. */
+    .modal-overlay {
+        padding: 3vh 12px;
+    }
+    .modal-card {
+        max-height: none;
+        width: 100%;
+        max-width: 100%;
+    }
+    .modal-photo {
+        min-height: 0;
+        height: 40vw;
+        max-height: 240px;
+        flex: 0 0 auto;
+    }
+    .modal-content {
+        flex: 0 0 auto;
+        width: 100%;
+        min-width: 0;
+        overflow-y: visible;
+    }
+    .modal-bio {
+        padding: 1.6rem 1.3rem;
+        overflow-wrap: anywhere;
+    }
+    .modal-close {
+        position: fixed;
+        top: 16px;
+        right: 16px;
+        background: var(--bg2);
+    }
+}
